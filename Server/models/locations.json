@@ -1,0 +1,35 @@
+[
+  {
+    "warehouse": "Warehouse Number 1",
+    "address": "469 King St W, Toronto, ON",
+    "contact": "Mara Weinberg",
+    "role": "Warehouse Manager",
+    "phone": "+1 416 678 2345",
+    "email": "weinberg@instack.com",
+    "categories": [
+      "Industrial",
+      "Automotive",
+      "Heavy",
+      "Mechanical",
+      "Engineering"
+    ],
+    "products": [
+      {
+        "name": "Product Name Here",
+        "description": "Here is a very brief description of the product",
+        "date": "05/24/2018",
+        "location": "Toronto, CA",
+        "quantity": "12,000",
+        "status": "Instock"
+      },
+      {
+        "name": "Product Name Here",
+        "description": "Here is a very brief description of the product",
+        "date": "05/24/2018",
+        "location": "Toronto, CA",
+        "quantity": "1200",
+        "status": "Out of Stock"
+      }
+    ]
+  }
+]

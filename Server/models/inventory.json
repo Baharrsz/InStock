@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Product Name Here",
+    "description": "Here is a very brief description of the product",
+    "descriptionplus": "Here is a more detailed summary of the product name. Its uses, industries, and possible attributes that could be used to describe the product.",
+    "date": "05/24/2018",
+    "location": "Toronto, CA",
+    "quantity": "12,000",
+    "status": "Instock",
+    "customer": "Mark Sauders"
+  },
+  {
+    "name": "Product Name Here",
+    "description": "Here is a very brief description of the product",
+    "descriptionplus": "Here is a more detailed summary of the product name. Its uses, industries, and possible attributes that could be used to describe the product.",
+    "date": "05/24/2018",
+    "location": "Toronto, CA",
+    "quantity": "1200",
+    "status": "Out of Stock",
+    "customer": "Mark Sauders"
+  }
+]
