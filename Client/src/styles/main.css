@@ -1,0 +1,217 @@
+/* media query for mobile */
+/* media query for tablet */
+/* media query for landscape, medium pixel density desktops */
+/* media query for high pixel density desktops */
+@font-face {
+  font-family: "AvenirRegular";
+  src: url(../assets/fonts/Avenir-Regular.otf);
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AvenirDemiBold";
+  src: url(../assets/fonts/Avenir-Demi.otf);
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AvenirBold";
+  src: url(../assets/fonts/Avenir-Bold.otf);
+  font-style: normal;
+}
+
+/*This stylesheet contains the font-sizes for all the elements*/
+h1 {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+h2 {
+  font-size: 14px;
+  line-height: 22px;
+}
+
+h3,
+h4,
+p,
+li {
+  font-size: 13px;
+  line-height: 18px;
+}
+
+h5,
+label {
+  font-size: 12px;
+  line-height: 20px;
+  font-family: "AvenirBold";
+  color: #afafaf;
+}
+
+@media only screen and (min-width: 768px) {
+  h1 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+  h2 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  h3 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  h4,
+  p,
+  li {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  h5 {
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  h1 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+  h2 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  h3 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  h4,
+  p,
+  li {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  h5 {
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
+
+.location {
+  margin: 0 5vw;
+}
+
+.location__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.location__title {
+  margin-top: 32px;
+  margin-bottom: 16px;
+  font-family: "AvenirBold";
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.location__search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  border: 1px grey solid;
+  width: 90%;
+  margin-bottom: 32px;
+}
+
+.location__search--icon {
+  padding: 2% 2% 2% 5%;
+}
+
+.location__search--input {
+  width: 85%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.location__search--input::-webkit-input-placeholder {
+  font-size: 13px;
+  line-height: 18px;
+  font-family: "AvenirRegular";
+}
+
+.location__search--input:-ms-input-placeholder {
+  font-size: 13px;
+  line-height: 18px;
+  font-family: "AvenirRegular";
+}
+
+.location__search--input::-ms-input-placeholder {
+  font-size: 13px;
+  line-height: 18px;
+  font-family: "AvenirRegular";
+}
+
+.location__search--input::placeholder {
+  font-size: 13px;
+  line-height: 18px;
+  font-family: "AvenirRegular";
+}
+
+.location__content-detail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: "AvenirRegular";
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.location__content-detail--left--geo {
+  margin-bottom: 25px;
+}
+
+.location__content-detail--left--geo--warehouse {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 22px;
+  font-family: "AvenirDemiBold";
+}
+
+.location__content-detail--left--manager {
+  margin-bottom: 25px;
+}
+
+.location__content-detail--left--manager--name {
+  margin-bottom: 10px;
+}
+
+.location__content-detail--left--contact {
+  margin-bottom: 25px;
+}
+
+.location__content-detail--left--contact--phone {
+  margin-bottom: 10px;
+}
+
+.location__content-detail--left--categories {
+  margin-bottom: 24px;
+}
+/*# sourceMappingURL=main.css.map */

@@ -9,7 +9,7 @@ export default class App extends Component {
     return (
       <div>
         <Header />
-        <Redirect from="/" to="/inventory" />
+        <Redirect from="/" to="/locations" />
         <Switch>
           <Route path="/inventory" component={Inventory} />
           <Route path="/locations" component={Locations} />

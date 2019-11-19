@@ -1,0 +1,73 @@
+.location {
+  margin: 0 5vw;
+  &__header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    margin-top: 32px;
+    margin-bottom: 16px;
+    font-family: "AvenirBold";
+    font-size: 24px;
+    line-height: 32px;
+  }
+  &__search {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    border: 1px grey solid;
+    width: 90%;
+    margin-bottom: 32px;
+    &--icon {
+      padding: 2% 2% 2% 5%;
+    }
+    &--input {
+      width: 85%;
+      padding-top: 2%;
+      padding-bottom: 2%;
+      &::placeholder {
+        font-size: 13px;
+        line-height: 18px;
+        font-family: "AvenirRegular";
+      }
+    }
+  }
+
+  &__content {
+    &-detail {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      font-family: "AvenirRegular";
+      font-size: 13px;
+      line-height: 18px;
+      &--left {
+        &--geo {
+          margin-bottom: 25px;
+          &--warehouse {
+            margin-bottom: 10px;
+            font-size: 14px;
+            line-height: 22px;
+            font-family: "AvenirDemiBold";
+          }
+        }
+        &--manager {
+          margin-bottom: 25px;
+          &--name {
+            margin-bottom: 10px;
+          }
+        }
+        &--contact {
+          margin-bottom: 25px;
+          &--phone {
+            margin-bottom: 10px;
+          }
+        }
+        &--categories {
+          margin-bottom: 24px;
+        }
+      }
+    }
+  }
+}
