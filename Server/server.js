@@ -1,7 +1,7 @@
 // initialize Express in project
-const express = require("express");
+const express = require("./node_modules/express");
 const app = express();
-const cors = require("cors");
+const cors = require("./node_modules/cors/lib");
 
 // when the server receives a GET request to '/'
 app.get("/", (req, res) => {
