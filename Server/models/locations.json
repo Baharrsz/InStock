@@ -27,7 +27,7 @@
         "description": "Here is a very brief description of the product",
         "date": "05/24/2018",
         "location": "Toronto, CA",
-        "quantity": "1200",
+        "quantity": "12,000",
         "status": "Out of Stock"
       }
     ]
