@@ -1,7 +1,8 @@
 // initialize Express in project
-const express = require("./node_modules/express");
+const express = require("express");
 const app = express();
-const cors = require("./node_modules/cors/lib");
+const cors = require("cors");
+const location = require("./routes/locations");
 
 app.use(cors());
 app.use(express.json());
@@ -13,6 +14,9 @@ app.get("/", (req, res) => {
 });
 
 app.use("/inventory", require("./routes/inventory"));
+app.use(cors());
+
+app.use("/locations", location);
 
 // start Express on port 8080
 app.listen(8080, () => {
