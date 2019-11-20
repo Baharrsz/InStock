@@ -21,8 +21,9 @@ export default class Create extends Component {
 
         {/* Last Product name input */}
         <div className="create__container">
-          <p className="create__container-title">PRODUCT</p>
+          <h4 className="create__container-title">PRODUCT</h4>
           <input
+            required
             name="product"
             className="create__container-input"
             placeholder="Item Name"
@@ -31,8 +32,9 @@ export default class Create extends Component {
 
         {/* Last Ordered input */}
         <div className="create__container">
-          <p className="create__container-title">LAST ORDERED</p>
+          <h4 className="create__container-title">LAST ORDERED</h4>
           <input
+            required
             name="date"
             className="create__container-input"
             placeholder="yyyy-mm-dd"
@@ -41,8 +43,9 @@ export default class Create extends Component {
 
         {/* Warehouse input */}
         <div className="create__container">
-          <p className="create__container-title">WAREHOUSE</p>
+          <h4 className="create__container-title">WAREHOUSE</h4>
           <input
+            required
             name="warehouse"
             className="create__container-input"
             placeholder="Warehouse"
@@ -51,8 +54,9 @@ export default class Create extends Component {
 
         {/* City input */}
         <div className="create__container">
-          <p className="create__container-title">CITY</p>
+          <h4 className="create__container-title">CITY</h4>
           <input
+            required
             name="city"
             className="create__container-input"
             placeholder="City"
@@ -61,8 +65,9 @@ export default class Create extends Component {
 
         {/* Country input */}
         <div className="create__container">
-          <p className="create__container-title">COUNTRY</p>
+          <h4 className="create__container-title">COUNTRY</h4>
           <input
+            required
             name="country"
             className="create__container-input"
             placeholder="Canada"
@@ -71,8 +76,9 @@ export default class Create extends Component {
 
         {/* Quantity input */}
         <div className="create__container">
-          <p className="create__container-title">QUANTITY</p>
+          <h4 className="create__container-title">QUANTITY</h4>
           <input
+            required
             name="quantity"
             className="create__container-input"
             placeholder="0"
@@ -80,7 +86,7 @@ export default class Create extends Component {
         </div>
 
         <div className="create__container">
-          <p className="create__container-title">STATUS</p>
+          <h4 className="create__container-title">STATUS</h4>
           <label>In Stock</label>
           <button className="create__container-instock">
             Placeholder for button
@@ -88,8 +94,9 @@ export default class Create extends Component {
         </div>
 
         <div className="create__container">
-          <p className="create__container-title">ITEM DESCRIPTION</p>
+          <h4 className="create__container-title">ITEM DESCRIPTION</h4>
           <input
+            required
             name="description"
             className="create__container-instock optional"
             placeholder="(Optional)"

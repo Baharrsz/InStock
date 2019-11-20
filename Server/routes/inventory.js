@@ -17,11 +17,10 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  console.log(req.body);
   const newProduct = {
     name: req.body.name,
     description: req.body.description,
-    // descriptionplus: req.body.descriptionplus,
+    descriptionplus: req.body.description,
     date: req.body.date,
     quantity: req.body.quantity,
     status: req.body.status,
@@ -31,9 +30,16 @@ router.post("/", (req, res) => {
     country: req.body.country,
     id: uuid()
   };
-  // console.log(newProduct);
+  console.log(newProduct);
   inventoryList.push(newProduct);
   writeJSONFile(filePath, inventoryList);
+  res.send("Success");
+});
+
+router.delete("/:id", (req, res) => {
+  const id = req.params.id;
+  let keep = inventoryList.filter(product => id !== product.id);
+  writeJSONFile(filePath, keep);
   res.send("Success");
 });
 

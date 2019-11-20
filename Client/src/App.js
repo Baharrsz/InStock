@@ -3,12 +3,14 @@ import React, { Component } from "react";
 import Header from "./components/Header";
 import Locations from "./components/Locations";
 import Inventory from "./components/Inventory";
+import Create from "./components/Create";
 
 export default class App extends Component {
   render() {
     return (
       <div>
         <Header />
+        <Create />
         <Redirect from="/" to="/locations" />
         <Switch>
           <Route path="/inventory" component={Inventory} />
