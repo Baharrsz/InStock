@@ -26,6 +26,10 @@
       width: 85%;
       padding-top: 2%;
       padding-bottom: 2%;
+      border: none;
+      &:focus {
+        outline: none;
+      }
       &::placeholder {
         font-size: 13px;
         line-height: 18px;
@@ -66,8 +70,115 @@
         }
         &--categories {
           margin-bottom: 24px;
+          &--lineOne {
+            margin-bottom: 10px;
+          }
+        }
+      }
+      &--right {
+        display: flex;
+        align-items: center;
+      }
+    }
+    &-seperater {
+      margin: 0;
+    }
+  }
+  &__label {
+    display: none;
+  }
+}
+
+.desktop__title {
+  display: none;
+}
+
+@include medium {
+  .location {
+    margin: 0 3.125vw;
+    &__header {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__title {
+      margin-top: 48px;
+      margin-bottom: 48px;
+      font-size: 36px;
+      line-height: 44px;
+    }
+    &__search {
+      margin-top: 48px;
+      margin-bottom: 48px;
+      width: 30vw;
+      &--input {
+        &::placeholder {
+          font-size: 14px;
+          line-height: 22px;
         }
       }
     }
+
+    &__content {
+      &-detail {
+        &--left {
+          display: flex;
+          flex-direction: column;
+          width: 90%;
+          font-size: 14px;
+          line-height: 22px;
+          &--wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 24px;
+          }
+
+          &--geo {
+            margin-bottom: 32px;
+            &--warehouse {
+              font-size: 16px;
+              line-height: 24px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include large {
+  .location {
+    margin: 0 12.5vw;
+
+    &__search {
+      width: 20vw;
+    }
+
+    &__content {
+      &-detail {
+        &--left {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          &--geo {
+            // display: flex;
+          }
+          &--wrapper {
+            width: 48vw;
+          }
+        }
+      }
+    }
+  }
+
+  .desktop__title {
+    display: flex;
+    margin-bottom: 32px;
+    font-size: 12px;
+    line-height: 20px;
+    font-family: "AvenirBold";
+    color: $silver;
   }
 }
