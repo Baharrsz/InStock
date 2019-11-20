@@ -9,7 +9,8 @@
     "customer": "Mark Sauders",
     "warehous": "Warehouse Number 1",
     "city": "Toronto, ON",
-    "country": "Canada"
+    "country": "Canada",
+    "id": "12345"
   },
   {
     "name": "Product Name Here",
@@ -22,7 +23,8 @@
     "customer": "Mark Sauders",
     "warehous": "Warehouse Number 1",
     "city": "Toronto, ON",
-    "country": "Canada"
+    "country": "Canada",
+    "id": "123456"
   },
   {
     "name": "Product Name Here",
@@ -35,7 +37,8 @@
     "customer": "Mark Sauders",
     "warehous": "Warehouse Number 1",
     "city": "Toronto, ON",
-    "country": "Canada"
+    "country": "Canada",
+    "id": "123457"
   },
   {
     "name": "Product Name Here",
@@ -48,33 +51,8 @@
     "customer": "Mark Sauders",
     "warehous": "Warehouse Number 1",
     "city": "Toronto, ON",
-    "country": "Canada"
-  },
-  {
-    "name": "Product Name Here",
-    "description": "Here is a very brief description of the product",
-    "descriptionplus": "Here is a more detailed summary of the product name. Its uses, industries, and possible attributes that could be used to describe the product.",
-    "date": "05/24/2018",
-
-    "quantity": "12,000",
-    "status": "Instock",
-    "customer": "Mark Sauders",
-    "warehous": "Warehouse Number 1",
-    "city": "Toronto, ON",
-    "country": "Canada"
-  },
-  {
-    "name": "Product Name Here",
-    "description": "Here is a very brief description of the product",
-    "descriptionplus": "Here is a more detailed summary of the product name. Its uses, industries, and possible attributes that could be used to describe the product.",
-    "date": "05/24/2018",
-
-    "quantity": "1200",
-    "status": "Out of Stock",
-    "customer": "Mark Sauders",
-    "warehous": "Warehouse Number 1",
-    "city": "Toronto, ON",
-    "country": "Canada"
+    "country": "Canada",
+    "id": "123458"
   },
   {
     "name": "Product Name Here",
@@ -87,7 +65,8 @@
     "customer": "Mark Sauders",
     "warehous": "Warehouse Number 1",
     "city": "Toronto, ON",
-    "country": "Canada"
+    "country": "Canada",
+    "id": "123459"
   },
   {
     "name": "Product Name Here",
@@ -100,7 +79,36 @@
     "customer": "Mark Sauders",
     "warehous": "Warehouse Number 1",
     "city": "Toronto, ON",
-    "country": "Canada"
+    "country": "Canada",
+    "id": "1234510"
+  },
+  {
+    "name": "Product Name Here",
+    "description": "Here is a very brief description of the product",
+    "descriptionplus": "Here is a more detailed summary of the product name. Its uses, industries, and possible attributes that could be used to describe the product.",
+    "date": "05/24/2018",
+
+    "quantity": "12,000",
+    "status": "Instock",
+    "customer": "Mark Sauders",
+    "warehous": "Warehouse Number 1",
+    "city": "Toronto, ON",
+    "country": "Canada",
+    "id": "1234511"
+  },
+  {
+    "name": "Product Name Here",
+    "description": "Here is a very brief description of the product",
+    "descriptionplus": "Here is a more detailed summary of the product name. Its uses, industries, and possible attributes that could be used to describe the product.",
+    "date": "05/24/2018",
+
+    "quantity": "1200",
+    "status": "Out of Stock",
+    "customer": "Mark Sauders",
+    "warehous": "Warehouse Number 1",
+    "city": "Toronto, ON",
+    "country": "Canada",
+    "id": "1234512"
   },
   {
     "name": "Product Name Here",
@@ -112,7 +120,8 @@
     "customer": "Mark Sauders",
     "warehous": "Warehouse Number 1",
     "city": "Toronto, ON",
-    "country": "Canada"
+    "country": "Canada",
+    "id": "1234513"
   },
   {
     "name": "Product Name Here",
@@ -124,7 +133,8 @@
     "customer": "Mark Sauders",
     "warehous": "Warehouse Number 1",
     "city": "Toronto, ON",
-    "country": "Canada"
+    "country": "Canada",
+    "id": "1234514"
   },
   {
     "name": "Product Name Here",
@@ -136,7 +146,8 @@
     "customer": "Mark Sauders",
     "warehous": "Warehouse Number 1",
     "city": "Toronto, ON",
-    "country": "Canada"
+    "country": "Canada",
+    "id": "1234515"
   },
   {
     "name": "Product Name Here",
@@ -148,6 +159,7 @@
     "customer": "Mark Sauders",
     "warehous": "Warehouse Number 1",
     "city": "Toronto, ON",
-    "country": "Canada"
+    "country": "Canada",
+    "id": "1234516"
   }
 ]
