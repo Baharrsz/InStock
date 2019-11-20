@@ -7,7 +7,7 @@
     "quantity": "12,000",
     "status": "Instock",
     "customer": "Mark Sauders",
-    "warehous": "Warehouse Number 1",
+    "warehouse": "Warehouse Number 1",
     "city": "Toronto, ON",
     "country": "Canada",
     "id": "12345"
@@ -21,7 +21,7 @@
     "status": "Out of Stock",
 
     "customer": "Mark Sauders",
-    "warehous": "Warehouse Number 1",
+    "warehouse": "Warehouse Number 1",
     "city": "Toronto, ON",
     "country": "Canada",
     "id": "123456"
@@ -35,7 +35,7 @@
     "quantity": "12,000",
     "status": "Instock",
     "customer": "Mark Sauders",
-    "warehous": "Warehouse Number 1",
+    "warehouse": "Warehouse Number 1",
     "city": "Toronto, ON",
     "country": "Canada",
     "id": "123457"
@@ -49,7 +49,7 @@
     "quantity": "1200",
     "status": "Out of Stock",
     "customer": "Mark Sauders",
-    "warehous": "Warehouse Number 1",
+    "warehouse": "Warehouse Number 1",
     "city": "Toronto, ON",
     "country": "Canada",
     "id": "123458"
@@ -63,7 +63,7 @@
     "quantity": "12,000",
     "status": "Instock",
     "customer": "Mark Sauders",
-    "warehous": "Warehouse Number 1",
+    "warehouse": "Warehouse Number 1",
     "city": "Toronto, ON",
     "country": "Canada",
     "id": "123459"
@@ -77,7 +77,7 @@
     "quantity": "1200",
     "status": "Out of Stock",
     "customer": "Mark Sauders",
-    "warehous": "Warehouse Number 1",
+    "warehouse": "Warehouse Number 1",
     "city": "Toronto, ON",
     "country": "Canada",
     "id": "1234510"
@@ -91,7 +91,7 @@
     "quantity": "12,000",
     "status": "Instock",
     "customer": "Mark Sauders",
-    "warehous": "Warehouse Number 1",
+    "warehouse": "Warehouse Number 1",
     "city": "Toronto, ON",
     "country": "Canada",
     "id": "1234511"
@@ -105,7 +105,7 @@
     "quantity": "1200",
     "status": "Out of Stock",
     "customer": "Mark Sauders",
-    "warehous": "Warehouse Number 1",
+    "warehouse": "Warehouse Number 1",
     "city": "Toronto, ON",
     "country": "Canada",
     "id": "1234512"
@@ -118,7 +118,7 @@
     "quantity": "12,000",
     "status": "Instock",
     "customer": "Mark Sauders",
-    "warehous": "Warehouse Number 1",
+    "warehouse": "Warehouse Number 1",
     "city": "Toronto, ON",
     "country": "Canada",
     "id": "1234513"
@@ -131,7 +131,7 @@
     "quantity": "1200",
     "status": "Out of Stock",
     "customer": "Mark Sauders",
-    "warehous": "Warehouse Number 1",
+    "warehouse": "Warehouse Number 1",
     "city": "Toronto, ON",
     "country": "Canada",
     "id": "1234514"
@@ -144,7 +144,7 @@
     "quantity": "12,000",
     "status": "Instock",
     "customer": "Mark Sauders",
-    "warehous": "Warehouse Number 1",
+    "warehouse": "Warehouse Number 1",
     "city": "Toronto, ON",
     "country": "Canada",
     "id": "1234515"
@@ -157,7 +157,7 @@
     "quantity": "1200",
     "status": "Out of Stock",
     "customer": "Mark Sauders",
-    "warehous": "Warehouse Number 1",
+    "warehouse": "Warehouse Number 1",
     "city": "Toronto, ON",
     "country": "Canada",
     "id": "1234516"
