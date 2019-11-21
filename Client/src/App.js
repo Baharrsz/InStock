@@ -12,12 +12,11 @@ export default class App extends Component {
         <Header />
         <Switch>
           <Redirect from="/" exact to="/locations" />
-          <Route path="/inventory" component={Inventory} />
+          <Route path="/inventory" exact component={Inventory} />
           <Route path="/locations" component={Locations} />
           <Route
             path="/inventory/:id"
             render={props => {
-              console.log(props);
               return <InventoryDetails id={props.match.params.id} />;
             }}
           />
