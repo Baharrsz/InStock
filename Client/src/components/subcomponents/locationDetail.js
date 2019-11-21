@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Arrow from "../../assets/icons/SVG/Icon-arrow-right.svg";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 var windowWidth = window.innerWidth;
 
@@ -88,12 +89,17 @@ export default class locationDetail extends Component {
             <div className="location__content-detail--left">
               <div className="location__content-detail--left--geo">
                 <div className="desktop__title">WAREHOUSE</div>
-                <div className="location__content-detail--left--geo--warehouse">
-                  {this.state.content.warehouse}
-                </div>
-                <div className="location__content-detail--left--geo--address">
-                  {this.state.content.address}
-                </div>
+                <Link
+                  to={`/locations/detail/${this.state.content.warehouse}`}
+                  className="warehouse__link"
+                >
+                  <div className="location__content-detail--left--geo--warehouse">
+                    {this.state.content.warehouse}
+                  </div>
+                  <div className="location__content-detail--left--geo--address">
+                    {this.state.content.address}
+                  </div>
+                </Link>
               </div>
               <div className="location__content-detail--left--wrapper">
                 <div className="location__content-detail--left--manager">

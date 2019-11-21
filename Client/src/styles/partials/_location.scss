@@ -93,6 +93,10 @@
   display: none;
 }
 
+.warehouse__link {
+  text-decoration: none;
+}
+
 @include medium {
   .location {
     margin: 0 3.125vw;

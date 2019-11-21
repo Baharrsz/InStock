@@ -17,3 +17,11 @@ body {
 @import "./partials/create";
 @import "./partials/inventory";
 @import "./partials/inventoryDetails";
+@import "./partials/warehouseInfo";
+@import "./partials/productDetail";
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
