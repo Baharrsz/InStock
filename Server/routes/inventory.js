@@ -15,4 +15,10 @@ router.get("/", (req, res) => {
   res.json(inventoryList);
 });
 
+router.get("/:id", (req, res) => {
+  const match = inventoryList.find(product => product.id === req.params.id);
+  if (match) res.json(match);
+  else res.status(404).send("No product with such id");
+});
+
 module.exports = router;
