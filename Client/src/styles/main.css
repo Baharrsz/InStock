@@ -405,17 +405,21 @@ label {
 
 .create__container-input::-webkit-input-placeholder {
   padding-left: 16px;
+  color: black;
 }
 
 .create__container-input:-ms-input-placeholder {
   padding-left: 16px;
+  color: black;
 }
 
 .create__container-input::-ms-input-placeholder {
   padding-left: 16px;
+  color: black;
 }
 
 .create__container-input::placeholder {
   padding-left: 16px;
+  color: black;
 }
 /*# sourceMappingURL=main.css.map */
