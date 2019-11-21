@@ -8,7 +8,8 @@
         "partials/_fonts.scss",
         "partials/_typography.scss",
         "partials/_location.scss",
-        "partials/_create.scss"
+        "partials/_create.scss",
+        "partials/_inventory.scss"
     ],
     "names": [],
     "file": "main.css"

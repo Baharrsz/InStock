@@ -1,5 +1,39 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
+
+function TableHeader() {
+  return (
+    <div className="inventory__tableHeader">
+      <div className="inventory__tableHeader-item"> ITEM</div>
+      <div className="inventory__tableHeader-item"> LAST ORDERED</div>
+      <div className="inventory__tableHeader-item"> LOCATION</div>
+      <div className="inventory__tableHeader-item"> QUANTITY</div>
+      <div className="inventory__tableHeader-item"> STATUS</div>
+    </div>
+  );
+}
+
+function TableRow(props) {
+  return (
+    <div className="inventory__Row">
+      <div className="inventory__Row-item">
+        <Link className="inventory__Row-item--name" to={props.id}>
+          {props.name}
+        </Link>
+        <div className="inventory__Row-item--description">
+          {props.description}
+        </div>
+      </div>
+      <div className="inventory__Row-item">{props.date}</div>
+      <div className="inventory__Row-item">
+        {props.city},{props.country}
+      </div>
+      <div className="inventory__Row-item"> {props.quantity}</div>
+      <div className="inventory__Row-item"> {props.status}</div>
+    </div>
+  );
+}
 
 export default class Inventory extends Component {
   state = {
@@ -7,7 +41,7 @@ export default class Inventory extends Component {
   };
   componentDidMount() {
     axios
-      .get("localhost:8080/inventory")
+      .get("http://localhost:8080/inventory")
       .then(response => this.setState({ inventoryList: response.data }));
   }
 
@@ -15,36 +49,12 @@ export default class Inventory extends Component {
     if (!this.state.inventoryList) return <>Loading...</>;
     else {
       let tableRows = this.state.inventoryList.map(product => {
-        return (
-          <ul className="inventory__tableRow">
-            <li className="inventory__tableRow-item">
-              <div className="inventory__tableRow-item--name">
-                {product.name}
-              </div>
-              <div className="inventory__tableRow-item--description">
-                {product.description}
-              </div>
-            </li>
-            <li className="inventory__tableRow-item">{product.date}</li>
-            <li className="inventory__tableRow-item">
-              {" "}
-              {product.city},{product.country}
-            </li>
-            <li className="inventory__tableRow-item"> {product.quantity}</li>
-            <li className="inventory__tableRow-item"> {product.status}</li>
-          </ul>
-        );
+        return TableRow(product);
       });
       return (
-        <div className="inventory">
-          <ul className="inventory__tableHeader">
-            <li className="inventory__tableHeader-item"> ITEM</li>
-            <li className="inventory__tableHeader-item"> LAST ORDERED</li>
-            <li className="inventory__tableHeader-item"> LOCATION</li>
-            <li className="inventory__tableHeader-item"> QUANTITY</li>
-            <li className="inventory__tableHeader-item"> STATUS</li>
-          </ul>
-          <div className="inventory__normalRows">{tableRows}</div>
+        <div className="inventory__table">
+          <TableHeader />
+          <div className="inventory__Rows">{tableRows}</div>
         </div>
       );
     }
