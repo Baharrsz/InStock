@@ -401,25 +401,22 @@ label {
   border-radius: 5px;
   border: 2px solid #e1e1e1;
   background: #fafafa;
+  padding-left: 7.2727272727272725%;
 }
 
 .create__container-input::-webkit-input-placeholder {
-  padding-left: 16px;
   color: black;
 }
 
 .create__container-input:-ms-input-placeholder {
-  padding-left: 16px;
   color: black;
 }
 
 .create__container-input::-ms-input-placeholder {
-  padding-left: 16px;
   color: black;
 }
 
 .create__container-input::placeholder {
-  padding-left: 16px;
   color: black;
 }
 /*# sourceMappingURL=main.css.map */

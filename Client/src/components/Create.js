@@ -87,7 +87,7 @@ export default class Create extends Component {
 
         <div className="create__container">
           <h4 className="create__container-title silver">STATUS</h4>
-          <label>In Stock</label>
+          <label label-black>In Stock</label>
           <button className="create__container-instock">
             Placeholder for button
           </button>
