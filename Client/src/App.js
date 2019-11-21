@@ -7,14 +7,14 @@ import Inventory from "./components/Inventory";
 export default class App extends Component {
   render() {
     return (
-      <div>
+      <>
         <Header />
         <Switch>
           <Redirect from="/" exact to="/locations" />
           <Route path="/inventory" component={Inventory} />
           <Route path="/locations" component={Locations} />
         </Switch>
-      </div>
+      </>
     );
   }
 }
