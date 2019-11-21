@@ -10,11 +10,6 @@ export default class App extends Component {
     return (
       <div>
         <Header />
-<<<<<<< HEAD
-        <Create />
-        <Redirect from="/" to="/locations" />
-=======
->>>>>>> master
         <Switch>
           <Redirect from="/" exact to="/locations" />
           <Route path="/inventory" component={Inventory} />
