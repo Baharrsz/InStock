@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Header from "./components/Header";
 import Locations from "./components/Locations";
 import Inventory from "./components/Inventory";
+import InventoryDetails from "./components/subcomponents/InventoryDetails";
 
 export default class App extends Component {
   render() {
@@ -13,6 +14,13 @@ export default class App extends Component {
           <Redirect from="/" exact to="/locations" />
           <Route path="/inventory" component={Inventory} />
           <Route path="/locations" component={Locations} />
+          <Route
+            path="/inventory/:id"
+            render={props => {
+              console.log(props);
+              return <InventoryDetails id={props.match.params.id} />;
+            }}
+          />
         </Switch>
       </div>
     );
