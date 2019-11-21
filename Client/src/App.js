@@ -9,8 +9,8 @@ export default class App extends Component {
     return (
       <div>
         <Header />
-        <Redirect from="/" to="/locations" />
         <Switch>
+          <Redirect from="/" exact to="/locations" />
           <Route path="/inventory" component={Inventory} />
           <Route path="/locations" component={Locations} />
         </Switch>
