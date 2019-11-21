@@ -1,5 +1,17 @@
+html,
+body {
+  box-sizing: border-box;
+  font-family: "AvenirNextRegular";
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
 @import "./partials/breakpoints";
 @import "./partials/colors";
 @import "./partials/fonts";
 @import "./partials/typography";
 @import "./partials/location";
+@import "./partials/create";
