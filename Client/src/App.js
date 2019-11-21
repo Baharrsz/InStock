@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Header from "./components/Header";
 import Locations from "./components/Locations";
 import Inventory from "./components/Inventory";
+import WarehouseInfo from "./components/subcomponents/warehouseInfo";
 
 export default class App extends Component {
   render() {
@@ -12,7 +13,11 @@ export default class App extends Component {
         <Redirect from="/" to="/locations" />
         <Switch>
           <Route path="/inventory" component={Inventory} />
-          <Route path="/locations" component={Locations} />
+          <Route path="/locations" exact component={Locations} />
+          <Route
+            path="/locations/detail/:warehouse"
+            component={WarehouseInfo}
+          />
         </Switch>
       </div>
     );
