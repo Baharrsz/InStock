@@ -26,12 +26,15 @@ export default class warehouseInfo_productDetail extends Component {
       //find the element matches the name : only first one for mobile version
 
       response.data.map(element => {
-        if (element.warehouse === response.data.warehouse) {
+        console.log(element.warehouse);
+        console.log(this.props.name);
+        if (element.warehouse === this.props.name) {
           foundElement.push(element);
         }
       });
       let mobileContent = [];
       mobileContent.push(foundElement[0]);
+      console.log(foundElement);
       if (this.state.mobile) {
         this.setState({
           product: mobileContent
@@ -74,6 +77,7 @@ export default class warehouseInfo_productDetail extends Component {
   }
 
   outputProduct = () => {
+    console.log(this.state.product);
     if (this.state.product[0] === undefined) {
       return <div>Product information Loading ... </div>;
     } else {
@@ -81,8 +85,8 @@ export default class warehouseInfo_productDetail extends Component {
       return this.state.product.map((element, index) => {
         console.log(element);
         return (
-          <div>
-            <div className="productDetail" key={index}>
+          <div key={index}>
+            <div className="productDetail">
               <div className="productDetail__content">
                 <div className="productDetail__left">
                   <div className="productDetail__left-item">
