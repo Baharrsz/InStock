@@ -45,12 +45,10 @@ export default class Create extends Component {
         {/* Warehouse input */}
         <div className="create__container">
           <h4 className="create__container-title silver">WAREHOUSE</h4>
-          <input
-            required
-            name="warehouse"
-            className="create__container-input"
-            placeholder="Warehouse"
-          ></input>
+          <select required name="warehouse" className="create__container-input">
+            <option value="0"></option>
+            <option value="0">Warehouse 1</option>
+          </select>
         </div>
 
         {/* City input */}
@@ -89,7 +87,7 @@ export default class Create extends Component {
         <div className="create__container">
           <h4 className="create__container-title silver">STATUS</h4>
           <div className="create__container-flex">
-            <label label-black>In Stock</label>
+            <label id="label-black">In Stock</label>
             <Reactswitch />
           </div>
         </div>

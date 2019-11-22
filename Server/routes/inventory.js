@@ -41,7 +41,8 @@ router.delete("/:id", (req, res) => {
   let keep = inventoryList.filter(product => id !== product.id);
   writeJSONFile(filePath, keep);
   res.send("Success");
-  
+});
+
 router.get("/:id", (req, res) => {
   const match = inventoryList.find(product => product.id === req.params.id);
   if (match) res.json(match);
