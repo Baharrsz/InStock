@@ -6,7 +6,8 @@
 .silver {
   color: $silver;
 }
-.label-black {
+#label-black {
+  color: black;
 }
 .create {
   margin: 32px 5% 0 5%;
@@ -31,6 +32,11 @@
       &::placeholder {
         color: black;
       }
+    }
+    &-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
   }
 }

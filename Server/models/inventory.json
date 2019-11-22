@@ -4,8 +4,6 @@
     "description": "Here is a very brief description of the product",
     "descriptionplus": "Here is a more detailed summary of the product name. Its uses, industries, and possible attributes that could be used to describe the product.",
     "date": "05/24/2018",
-<<<<<<< HEAD
-=======
     "quantity": "12,000",
     "status": "Instock",
     "customer": "Mark Sauders",
@@ -26,7 +24,6 @@
     "description": "Here is a very brief description of the product",
     "descriptionplus": "Here is a more detailed summary of the product name. Its uses, industries, and possible attributes that could be used to describe the product.",
     "date": "05/24/2018",
->>>>>>> master
     "quantity": "1200",
     "status": "Out of Stock",
     "customer": "Mark Sauders",
@@ -233,23 +230,6 @@
     "warehouse": "Warehouse Number 1",
     "city": "Toronto, ON",
     "country": "Canada",
-<<<<<<< HEAD
-    "id": "1234516"
-  },
-  { "name": "Product Name Here", "id": "cf06271f-9fde-4df3-a957-24fd91cb68b3" },
-  {
-    "name": "Product Name Here",
-    "description": "Here is a very brief description of the product",
-    "descriptionplus": "Here is a more detailed summary of the product name. Its uses, industries, and possible attributes that could be used to describe the product.",
-    "date": "05/24/2018",
-    "quantity": "12,000",
-    "status": "Instock",
-    "customer": "Mark Sauders",
-    "warehouse": "Warehouse Number 1",
-    "city": "Toronto, ON",
-    "country": "Canada",
-    "id": "73e6c4da-155b-4af5-a90a-fdf5281a05aa"
-=======
     "id": "1234516",
     "categories": [
       "Industrial",
@@ -258,6 +238,5 @@
       "Mechanical",
       "Engineering"
     ]
->>>>>>> master
   }
 ]

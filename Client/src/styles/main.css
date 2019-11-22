@@ -384,6 +384,10 @@ label {
   color: #afafaf;
 }
 
+#label-black {
+  color: black;
+}
+
 .create {
   margin: 32px 5% 0 5%;
 }
@@ -422,6 +426,18 @@ label {
 
 .create__container-input::placeholder {
   color: black;
+}
+
+.create__container-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .warehouse {
@@ -888,12 +904,5 @@ label {
   .detail-seperater {
     margin: 0 12.5vw;
   }
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
 }
 /*# sourceMappingURL=main.css.map */
