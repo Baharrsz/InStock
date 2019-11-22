@@ -77,7 +77,7 @@ class TableRow extends Component {
 export default class Inventory extends Component {
   constructor(props) {
     super(props);
-    this.overlay = React.createRef();
+    // this.overlay = React.createRef();
     this.addPage = React.createRef();
   }
   state = {
@@ -114,7 +114,7 @@ export default class Inventory extends Component {
 
   showAddPage = event => {
     event.preventDefault();
-    this.overlay.current.style.display = "block";
+    // this.overlay.current.style.display = "block";
     this.addPage.current.style.display = "block";
   };
 
@@ -141,11 +141,11 @@ export default class Inventory extends Component {
               +
             </button>
           </div>
-          <div
+          {/* <div
             className="overlay"
             ref={this.overlay}
             style={{ display: "none" }}
-          ></div>
+          ></div> */}
           <div
             className="addPage"
             ref={this.addPage}
