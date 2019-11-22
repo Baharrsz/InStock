@@ -3,17 +3,15 @@ import React, { Component } from "react";
 import Header from "./components/Header";
 import Locations from "./components/Locations";
 import Inventory from "./components/Inventory";
-<<<<<<< HEAD
-import Create from "./components/Create";
-=======
 import WarehouseInfo from "./components/subcomponents/warehouseInfo";
->>>>>>> master
+import Create from "./components/Create";
 
 export default class App extends Component {
   render() {
     return (
       <>
         <Header />
+        <Create />
         <Switch>
           <Redirect from="/" exact to="/locations" />
           <Route path="/inventory" component={Inventory} />

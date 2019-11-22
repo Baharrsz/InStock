@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Reactswitch from "react-switch";
 
 export default class Create extends Component {
   uploadSubmit = submit => {
@@ -88,9 +89,7 @@ export default class Create extends Component {
         <div className="create__container">
           <h4 className="create__container-title silver">STATUS</h4>
           <label label-black>In Stock</label>
-          <button className="create__container-instock">
-            Placeholder for button
-          </button>
+          <Reactswitch />
         </div>
 
         <div className="create__container">
