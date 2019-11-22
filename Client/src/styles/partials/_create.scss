@@ -9,6 +9,11 @@
 #label-black {
   color: black;
 }
+
+#optional {
+  height: 80px;
+  padding-bottom: 30px;
+}
 .create {
   margin: 32px 5% 0 5%;
   //   padding: 32px 0 0 0;
@@ -20,6 +25,11 @@
   &__container {
     margin: 24px 0;
     width: 100%;
+
+    &-switch {
+      margin-right: 16px;
+      height: 30px;
+    }
     &-input {
       border-style: unset;
       width: 100%;

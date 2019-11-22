@@ -1,10 +1,10 @@
-* {
+html * {
   margin: unset;
   padding: unset;
 }
 
 html,
-body {
+body  {
   box-sizing: border-box;
   font-family: "AvenirNextRegular";
 }
@@ -24,4 +24,4 @@ body {
 // @import "./partials/inventoryDetails";
 @import "./partials/warehouseInfo";
 @import "./partials/productDetail";
-@import "./partials/hiddenComponents.scss";
+// @import "./partials/hiddenComponents.scss";
