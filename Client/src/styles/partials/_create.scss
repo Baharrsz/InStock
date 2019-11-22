@@ -6,6 +6,8 @@
 .silver {
   color: $silver;
 }
+.label-black {
+}
 .create {
   margin: 32px 5% 0 5%;
   //   padding: 32px 0 0 0;
@@ -24,9 +26,10 @@
       border-radius: 5px;
       border: 2px solid $mercury;
       background: $alabaster;
+      padding-left: 7.2727272727272725%;
 
       &::placeholder {
-        padding-left: 16px;
+        color: black;
       }
     }
   }

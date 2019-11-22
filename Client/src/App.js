@@ -5,12 +5,14 @@ import Locations from "./components/Locations";
 import Inventory from "./components/Inventory";
 import InventoryDetails from "./components/subcomponents/InventoryDetails";
 import WarehouseInfo from "./components/subcomponents/warehouseInfo";
+import Create from "./components/Create";
 
 export default class App extends Component {
   render() {
     return (
       <>
         <Header />
+        <Create />
         <Switch>
           <Redirect from="/" exact to="/locations" />
           <Route path="/inventory" exact component={Inventory} />

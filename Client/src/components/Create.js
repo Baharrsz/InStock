@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Reactswitch from "react-switch";
 
 export default class Create extends Component {
   uploadSubmit = submit => {
@@ -17,12 +18,13 @@ export default class Create extends Component {
   render() {
     return (
       <form onSubmit={this.uploadSubmit} className="create">
-        <h1 className="create-title">CREATE NEW</h1>
+        <h1 className="create-title">Create New</h1>
 
         {/* Last Product name input */}
         <div className="create__container">
-          <p className="create__container-title">PRODUCT</p>
+          <h4 className="create__container-title silver">PRODUCT</h4>
           <input
+            required
             name="product"
             className="create__container-input"
             placeholder="Item Name"
@@ -31,8 +33,9 @@ export default class Create extends Component {
 
         {/* Last Ordered input */}
         <div className="create__container">
-          <p className="create__container-title">LAST ORDERED</p>
+          <h4 className="create__container-title silver">LAST ORDERED</h4>
           <input
+            required
             name="date"
             className="create__container-input"
             placeholder="yyyy-mm-dd"
@@ -41,8 +44,9 @@ export default class Create extends Component {
 
         {/* Warehouse input */}
         <div className="create__container">
-          <p className="create__container-title">WAREHOUSE</p>
+          <h4 className="create__container-title silver">WAREHOUSE</h4>
           <input
+            required
             name="warehouse"
             className="create__container-input"
             placeholder="Warehouse"
@@ -51,8 +55,9 @@ export default class Create extends Component {
 
         {/* City input */}
         <div className="create__container">
-          <p className="create__container-title">CITY</p>
+          <h4 className="create__container-title silver">CITY</h4>
           <input
+            required
             name="city"
             className="create__container-input"
             placeholder="City"
@@ -61,8 +66,9 @@ export default class Create extends Component {
 
         {/* Country input */}
         <div className="create__container">
-          <p className="create__container-title">COUNTRY</p>
+          <h4 className="create__container-title silver">COUNTRY</h4>
           <input
+            required
             name="country"
             className="create__container-input"
             placeholder="Canada"
@@ -71,8 +77,9 @@ export default class Create extends Component {
 
         {/* Quantity input */}
         <div className="create__container">
-          <p className="create__container-title">QUANTITY</p>
+          <h4 className="create__container-title silver">QUANTITY</h4>
           <input
+            required
             name="quantity"
             className="create__container-input"
             placeholder="0"
@@ -80,16 +87,15 @@ export default class Create extends Component {
         </div>
 
         <div className="create__container">
-          <p className="create__container-title">STATUS</p>
-          <label>In Stock</label>
-          <button className="create__container-instock">
-            Placeholder for button
-          </button>
+          <h4 className="create__container-title silver">STATUS</h4>
+          <label label-black>In Stock</label>
+          <Reactswitch />
         </div>
 
         <div className="create__container">
-          <p className="create__container-title">ITEM DESCRIPTION</p>
+          <h4 className="create__container-title silver">ITEM DESCRIPTION</h4>
           <input
+            required
             name="description"
             className="create__container-instock optional"
             placeholder="(Optional)"
