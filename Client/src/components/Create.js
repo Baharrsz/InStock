@@ -88,8 +88,10 @@ export default class Create extends Component {
 
         <div className="create__container">
           <h4 className="create__container-title silver">STATUS</h4>
-          <label label-black>In Stock</label>
-          <Reactswitch />
+          <div className="create__container-flex">
+            <label label-black>In Stock</label>
+            <Reactswitch />
+          </div>
         </div>
 
         <div className="create__container">
