@@ -905,4 +905,15 @@ label {
     margin: 0 12.5vw;
   }
 }
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+}
+
+.addPage {
+  width: 50vw;
+  height: 50vh;
+}
 /*# sourceMappingURL=main.css.map */

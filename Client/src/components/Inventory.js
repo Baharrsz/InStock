@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import uuid from "uuid";
 import kebabIcon from "../assets/icons/SVG/Icon-kebab-default.svg";
+import Create from "./Create";
 
 function TableHeader() {
   return (
@@ -76,7 +77,7 @@ class TableRow extends Component {
 export default class Inventory extends Component {
   constructor(props) {
     super(props);
-    this.overlay = React.createRef();
+    // this.overlay = React.createRef();
     this.addPage = React.createRef();
   }
   state = {
@@ -108,7 +109,13 @@ export default class Inventory extends Component {
     const id = event.target.id;
     console.log(id);
     const url = `http://localhost:8080/inventory/${id}`;
-    // axios.delete(url).then(this.setState({ deleted: id }));
+    axios.delete(url).then(this.setState({ deleted: id }));
+  };
+
+  showAddPage = event => {
+    event.preventDefault();
+    // this.overlay.current.style.display = "block";
+    this.addPage.current.style.display = "block";
   };
 
   render() {
@@ -130,18 +137,22 @@ export default class Inventory extends Component {
           <div className="inventory__table">
             <TableHeader />
             <div className="inventory__Rows">{tableRows}</div>
-            <button className="inventory__btn">+</button>
+            <button className="inventory__btn" onClick={this.showAddPage}>
+              +
+            </button>
           </div>
-          <div
+          {/* <div
             className="overlay"
-            ref="overlay"
+            ref={this.overlay}
             style={{ display: "none" }}
-          ></div>
+          ></div> */}
           <div
             className="addPage"
-            ref="addPage"
+            ref={this.addPage}
             style={{ display: "none" }}
-          ></div>
+          >
+            <Create />
+          </div>
         </div>
       );
     }

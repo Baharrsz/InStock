@@ -12,7 +12,6 @@ export default class App extends Component {
     return (
       <>
         <Header />
-        <Create />
         <Switch>
           <Redirect from="/" exact to="/locations" />
           <Route path="/inventory" exact component={Inventory} />
