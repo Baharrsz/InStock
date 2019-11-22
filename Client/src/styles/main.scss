@@ -16,12 +16,14 @@ body {
 @import "./partials/location";
 @import "./partials/create";
 @import "./partials/inventory";
-@import "./partials/inventoryDetails";
+@import "./partials/invetoryDetails";
 @import "./partials/warehouseInfo";
 @import "./partials/productDetail";
+@import "./partials/locationCreateNew";
 
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  position: relative;
 }

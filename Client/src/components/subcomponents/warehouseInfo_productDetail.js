@@ -31,6 +31,7 @@ export default class warehouseInfo_productDetail extends Component {
         if (element.warehouse === this.props.name) {
           foundElement.push(element);
         }
+        return "";
       });
       let mobileContent = [];
       mobileContent.push(foundElement[0]);
