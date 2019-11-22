@@ -3,21 +3,9 @@ import axios from "axios";
 import Reactswitch from "react-switch";
 
 export default class Create extends Component {
-  uploadSubmit = submit => {
-    axios.post("http://localhost:8080/inventory", {
-      product: submit.target.product.value,
-      date: submit.target.date.value,
-      city: submit.target.city.value,
-      country: submit.target.country.value,
-      quantity: submit.target.quantity.value,
-      status: submit.target.status.value,
-      description: submit.target.description.value
-    });
-    submit.target.reset();
-  };
   render() {
     return (
-      <form onSubmit={this.uploadSubmit} className="create">
+      <form onSubmit={this.props.addFunction} className="create">
         <h1 className="create-title">Create New</h1>
 
         {/* Last Product name input */}

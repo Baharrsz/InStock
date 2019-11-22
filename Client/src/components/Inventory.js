@@ -81,56 +81,10 @@ export default class Inventory extends Component {
     this.addPage = React.createRef();
     this.state = {
       inventoryList: undefined,
-      deleted: undefined,
+      // deleted: undefined,
       added: undefined
     };
   }
-
-  componentDidMount() {
-    axios
-      .get("http://localhost:8080/inventory")
-      .then(response => this.setState({ inventoryList: response.data }));
-  }
-
-  // componentDidUpdate(prevProps, prevState) {
-  //   console.log(prevState.deleted !== this.state.deleted);
-  //   if (
-  //     prevState.deleted !== this.state.deleted ||
-  //     prevState.added !== this.state.added
-  //   ) {
-  //     setTimeout(() => {
-  //       axios.get("http://localhost:8080/inventory").then(response =>
-  //         this.setState({
-  //           inventoryList: response.data
-  //         })
-  //       );
-  //     }, 500);
-  //   }
-  // }
-
-  removeProduct = event => {
-    // event.preventDefault();
-    const id = event.target.id;
-    const url = `http://localhost:8080/inventory/${id}`;
-    axios.delete(url).then(
-      response => {
-        this.setState({ inventoryList: response.data });
-      }
-      // this.setState(
-      //   () => {
-      //     // console.log("inside setState", this.state, id);
-      //     return { deleted: id };
-      //   }
-      //   // , console.log(this, this.state, this.state.deleted, id)
-      // )
-    );
-  };
-
-  showAddPage = event => {
-    event.preventDefault();
-    // this.overlay.current.style.display = "block";
-    this.addPage.current.style.display = "block";
-  };
 
   render() {
     if (!this.state.inventoryList) return <>Loading...</>;
@@ -165,10 +119,73 @@ export default class Inventory extends Component {
             ref={this.addPage}
             style={{ display: "none" }}
           >
-            <Create />
+            <Create addFunction={this.addProduct} />
           </div>
         </div>
       );
     }
   }
+
+  componentDidMount() {
+    axios
+      .get("http://localhost:8080/inventory")
+      .then(response => this.setState({ inventoryList: response.data }));
+  }
+
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (
+  //     !prevState.inventoryList ||
+  //     prevState.inventoryList.length !== this.state.inventoryList.length
+  //   ) {
+  //     axios.get("http://localhost:8080/inventory").then(response =>
+  //       this.setState({
+  //         inventoryList: response.data
+  //       })
+  //     );
+  //   }
+  // }
+
+  removeProduct = event => {
+    // event.preventDefault();
+    const id = event.target.id;
+    const url = `http://localhost:8080/inventory/${id}`;
+    axios.delete(url).then(
+      response => {
+        this.setState({ inventoryList: response.data });
+      }
+      // this.setState(
+      //   () => {
+      //     // console.log("inside setState", this.state, id);
+      //     return { deleted: id };
+      //   }
+      //   // , console.log(this, this.state, this.state.deleted, id)
+      // )
+    );
+  };
+
+  addProduct = submit => {
+    submit.preventDefault();
+    const newProduct = {
+      product: submit.target.product.value,
+      date: submit.target.date.value,
+      city: submit.target.city.value,
+      country: submit.target.country.value,
+      quantity: submit.target.quantity.value,
+      status: "instock",
+      // submit.target.status.value,
+      description: submit.target.description.value
+    };
+    axios.post("http://localhost:8080/inventory", newProduct).then(response => {
+      this.setState({
+        inventoryList: [...this.state.inventoryList, response.data]
+      });
+    });
+    submit.target.reset();
+    this.addPage.current.style.display = "none";
+  };
+
+  showAddPage = event => {
+    event.preventDefault();
+    this.addPage.current.style.display = "block";
+  };
 }
