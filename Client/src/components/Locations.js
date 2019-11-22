@@ -22,12 +22,7 @@ export default class Locations extends Component {
             ></textarea>
           </div>
         </div>
-        <div className="location__label">
-          <div className="location__label-warehouse">WAREHOUSE</div>
-          <div className="location__label-contact">CONTACT</div>
-          <div className="location__label-info">CONTACT INFORMATION</div>
-          <div className="location__label-cate">CATEGORIES</div>
-        </div>
+
         <div className="location__content">
           <LocationDetail />
         </div>
