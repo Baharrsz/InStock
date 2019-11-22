@@ -6,7 +6,6 @@ export default class InventoryDetails extends Component {
 
   componentDidMount() {
     const url = `http://localhost:8080/inventory/${this.props.id}`;
-    console.log("url", url);
     axios
       .get(url)
       .then(response => this.setState({ selectedProduct: response.data }));
@@ -16,7 +15,6 @@ export default class InventoryDetails extends Component {
     const product = this.state.selectedProduct;
     if (!this.state.selectedProduct) return <>Loading...</>;
     else {
-      console.log("product", product);
       return (
         <div className="product">
           <h1 className="product__title">{product.name}</h1>

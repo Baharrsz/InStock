@@ -79,37 +79,51 @@ export default class Inventory extends Component {
     super(props);
     // this.overlay = React.createRef();
     this.addPage = React.createRef();
+    this.state = {
+      inventoryList: undefined,
+      deleted: undefined,
+      added: undefined
+    };
   }
-  state = {
-    inventoryList: undefined,
-    deleted: undefined,
-    added: undefined
-  };
+
   componentDidMount() {
     axios
       .get("http://localhost:8080/inventory")
       .then(response => this.setState({ inventoryList: response.data }));
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (
-      prevState.deleted !== this.state.deleted ||
-      prevState.added !== this.state.added
-    ) {
-      axios.get("http://localhost:8080/inventory").then(response =>
-        this.setState({
-          inventoryList: response.data
-        })
-      );
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log(prevState.deleted !== this.state.deleted);
+  //   if (
+  //     prevState.deleted !== this.state.deleted ||
+  //     prevState.added !== this.state.added
+  //   ) {
+  //     setTimeout(() => {
+  //       axios.get("http://localhost:8080/inventory").then(response =>
+  //         this.setState({
+  //           inventoryList: response.data
+  //         })
+  //       );
+  //     }, 500);
+  //   }
+  // }
 
   removeProduct = event => {
-    event.preventDefault();
+    // event.preventDefault();
     const id = event.target.id;
-    console.log(id);
     const url = `http://localhost:8080/inventory/${id}`;
-    axios.delete(url).then(this.setState({ deleted: id }));
+    axios.delete(url).then(
+      response => {
+        this.setState({ inventoryList: response.data });
+      }
+      // this.setState(
+      //   () => {
+      //     // console.log("inside setState", this.state, id);
+      //     return { deleted: id };
+      //   }
+      //   // , console.log(this, this.state, this.state.deleted, id)
+      // )
+    );
   };
 
   showAddPage = event => {
