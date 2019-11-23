@@ -36,18 +36,49 @@ router.post("/", (req, res) => {
     country: req.body.country,
     id: uuid()
   };
-  console.log(newProduct);
   inventoryList.push(newProduct);
-
   writeJSONFile(filePath, inventoryList);
   res.json(newProduct);
 });
 
 router.delete("/:id", (req, res) => {
   const id = req.params.id;
-  let keep = inventoryList.filter(product => id !== product.id);
+  let keep = inventoryList.filter(product => product.id !== id);
   writeJSONFile(filePath, keep);
   res.json(keep);
+});
+
+router.put("/:id", (req, res) => {
+  const id = req.params.id;
+  console.log("id is", id, typeof id);
+  const matchIndex = inventoryList.findIndex(product => product.id === id);
+  console.log(matchIndex);
+  if (matchIndex < 0) res.status(404).send("There's no product with that id.");
+  else {
+    const edited = {
+      name: req.body.name,
+      description: req.body.description,
+      descriptionplus: req.body.description,
+      date: req.body.date,
+      quantity: req.body.quantity,
+      status: req.body.status,
+      customer: req.body.customer,
+      warehouse: req.body.warehouse,
+      city: req.body.city,
+      country: req.body.country,
+      id: req.body.id
+    };
+    let undefineds = [];
+    for (key in edited) if (!edited[key]) undefineds.push(key);
+
+    if (undefineds.length > 0)
+      res.status(400).send(`Please specify ${undefineds}`);
+    else {
+      inventoryList.splice(matchIndex, 1, edited);
+      writeJSONFile(filePath, inventoryList);
+      res.json(edited);
+    }
+  }
 });
 
 module.exports = router;
