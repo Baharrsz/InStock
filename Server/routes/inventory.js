@@ -50,9 +50,8 @@ router.delete("/:id", (req, res) => {
 
 router.put("/:id", (req, res) => {
   const id = req.params.id;
-  console.log("id is", id, typeof id);
+  console.log("id is", id);
   const matchIndex = inventoryList.findIndex(product => product.id === id);
-  console.log(matchIndex);
   if (matchIndex < 0) res.status(404).send("There's no product with that id.");
   else {
     const edited = {
@@ -66,7 +65,8 @@ router.put("/:id", (req, res) => {
       warehouse: req.body.warehouse,
       city: req.body.city,
       country: req.body.country,
-      id: req.body.id
+      id: req.body.id,
+      categories: req.body.categories
     };
     let undefineds = [];
     for (key in edited) if (!edited[key]) undefineds.push(key);
