@@ -35,7 +35,7 @@ export default class Create extends Component {
           <h4 className="create__container-title silver">WAREHOUSE</h4>
           <select required name="warehouse" className="create__container-input">
             <option value="0"></option>
-            <option value="0">Warehouse 1</option>
+            <option value="Warehouse 1">Warehouse 1</option>
           </select>
         </div>
 

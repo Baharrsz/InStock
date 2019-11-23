@@ -38,6 +38,7 @@ router.post("/", (req, res) => {
   };
   console.log(newProduct);
   inventoryList.push(newProduct);
+
   writeJSONFile(filePath, inventoryList);
   res.json(newProduct);
 });
