@@ -7,12 +7,12 @@ import Create from "./Create";
 
 function TableHeader() {
   return (
-    <div className="inventory__tableHeader">
-      <div className="inventory__tableHeader-item"> ITEM</div>
-      <div className="inventory__tableHeader-item"> LAST ORDERED</div>
-      <div className="inventory__tableHeader-item"> LOCATION</div>
-      <div className="inventory__tableHeader-item"> QUANTITY</div>
-      <div className="inventory__tableHeader-item"> STATUS</div>
+    <div className="inventory__tableHeader--nonMobile">
+      <label className="inventory__tableHeader-item"> ITEM</label>
+      <label className="inventory__tableHeader-item"> LAST ORDERED</label>
+      <label className="inventory__tableHeader-item"> LOCATION</label>
+      <label className="inventory__tableHeader-item"> QUANTITY</label>
+      <label className="inventory__tableHeader-item"> STATUS</label>
     </div>
   );
 }
@@ -27,6 +27,7 @@ class TableRow extends Component {
     return (
       <div className="inventory__row">
         <div className="inventory__row-item">
+          <label className="inventory__tableHeader-item--mobile"> ITEM</label>
           <Link
             className="inventory__row-item--name"
             to={`/inventory/${product.id}`}
@@ -37,11 +38,17 @@ class TableRow extends Component {
             {product.description}
           </p>
         </div>
+        <label className="inventory__tableHeader-item--mobile">
+          LAST ORDERED
+        </label>
         <p className="inventory__row-item">{product.date}</p>
+        <label className="inventory__tableHeader-item--mobile"> LOCATION</label>
         <p className="inventory__row-item">
           {product.city},{product.country}
         </p>
+        <label className="inventory__tableHeader-item--mobile"> QUANTITY</label>
         <p className="inventory__row-item"> {product.quantity}</p>
+        <label className="inventory__tableHeader-item--mobile"> STATUS</label>
         <p className="inventory__row-item"> {product.status}</p>
         <img
           className="inventory__row-item"

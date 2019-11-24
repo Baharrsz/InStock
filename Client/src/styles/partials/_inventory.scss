@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+}
+
+.inventory__tableHeader {
+  &--nonMobile {
+    display: none;
+  }
+  &-item--mobile {
+    margin: 24px 5vw 16px 5vw;
+  }
+}
+
+.inventory {
+  &__row {
+    &-item {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

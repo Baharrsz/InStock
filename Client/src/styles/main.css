@@ -455,6 +455,28 @@ label {
           align-items: center;
 }
 
+* {
+  margin: 0;
+}
+
+.inventory__tableHeader--nonMobile {
+  display: none;
+}
+
+.inventory__tableHeader-item--mobile {
+  margin: 24px 5vw 16px 5vw;
+}
+
+.inventory__row-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .warehouse {
   display: -webkit-box;
   display: -ms-flexbox;
