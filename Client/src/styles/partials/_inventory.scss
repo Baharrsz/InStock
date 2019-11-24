@@ -131,6 +131,10 @@
         }
       }
 
+      &-row-cell {
+        align-self: center;
+      }
+
       &-row,
       &-row-cells--regular {
         display: grid;
@@ -141,6 +145,22 @@
           grid-template-rows: 100px;
         }
       }
+    }
+  }
+}
+
+@include huge {
+  .inventory {
+    grid-template-columns: 12.5vw auto auto 12.5vw;
+
+    &__btn {
+      width: 80px;
+      height: 80px;
+      background-size: 24px;
+    }
+
+    &-row-cells--regular {
+      grid-template-rows: 80px;
     }
   }
 }
