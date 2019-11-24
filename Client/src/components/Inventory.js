@@ -119,7 +119,10 @@ export default class Inventory extends Component {
             ref={this.addPage}
             style={{ display: "none" }}
           >
-            <Create addFunction={this.addProduct} />
+            <Create
+              addFunction={this.addProduct}
+              uploadCancel={this.hideAddPage}
+            />
           </div>
         </div>
       );
@@ -190,5 +193,10 @@ export default class Inventory extends Component {
   showAddPage = event => {
     event.preventDefault();
     this.addPage.current.style.display = "block";
+  };
+
+  hideAddPage = event => {
+    event.preventDefault();
+    this.addPage.current.style.display = "none";
   };
 }
