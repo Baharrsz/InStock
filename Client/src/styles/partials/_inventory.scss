@@ -4,15 +4,6 @@
   box-sizing: border-box;
 }
 
-.inventory__tableHeader {
-  &--nonMobile {
-    display: none;
-  }
-  &-item--mobile {
-    margin: 24px 0 16px 0;
-  }
-}
-
 .inventory {
   &__title {
     font-family: "AvenirBold";
@@ -22,7 +13,7 @@
   &__search {
     @include input;
     margin: 16px 0 32px 5vw;
-    width: 80vw;
+    width: 252px;
     padding-left: 48px;
     background-image: url(../assets/icons/SVG/Icon-search.svg);
     background-repeat: no-repeat;
@@ -46,44 +37,109 @@
 
   &__table {
     padding: 0 5vw;
+
+    &-header {
+      &--nonMobile {
+        display: none;
+      }
+      &-cell--mobile {
+        margin: 24px 0 16px 0;
+      }
+    }
+
+    &-row {
+      border-bottom: 1px solid $mercury;
+      padding-top: 24px;
+      position: relative;
+
+      &-cell {
+        display: flex;
+        flex-direction: column;
+        margin: 16px 0 24px 0;
+
+        &--name {
+          font-family: "AvenirDemiBold";
+          text-decoration: none;
+          color: black;
+          margin-bottom: 16px;
+        }
+      }
+
+      &-cells--hidden {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      &-kebab {
+        position: absolute;
+        top: 24px;
+        right: 0;
+      }
+
+      &-dropdown {
+        position: absolute;
+        top: 48px;
+        right: 0;
+        border: 1px solid $mercury;
+        padding: 10px;
+        background-color: $white;
+      }
+    }
   }
+}
 
-  &__row {
-    border-bottom: 1px solid $mercury;
-    padding-top: 24px;
-    position: relative;
-
-    &-items--hidden {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
+@include medium {
+  .inventory {
+    * {
+      margin: 0;
     }
 
-    &-kebab {
-      position: absolute;
-      top: 24px;
-      right: 0;
+    display: grid;
+    grid-template-columns: 3.125vw auto auto 3.125vw;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      ". title search ."
+      ". table table .";
+
+    &__btn {
+      right: 13vw;
     }
 
-    &-dropdown {
-      position: absolute;
-      top: 48px;
-      right: 0;
-      border: 1px solid $mercury;
-      padding: 10px;
-      background-color: $white;
+    &__title {
+      grid-area: title;
+      margin: 48px 0;
     }
 
-    &-item {
-      display: flex;
-      flex-direction: column;
-      margin: 16px 0 24px 0;
+    &__search {
+      grid-area: search;
+      margin-top: 40px;
+      justify-self: end;
+    }
 
-      &--name {
-        font-family: "AvenirDemiBold";
-        text-decoration: none;
-        color: black;
-        margin-bottom: 16px;
+    &__table {
+      grid-area: table;
+      padding: 0;
+
+      &-header {
+        &--nonMobile {
+          display: block;
+          border: none;
+        }
+        &-cell--mobile {
+          display: none;
+        }
+      }
+
+      &-row,
+      &-row-cells--regular {
+        display: grid;
+        grid-template-columns: 29.17vw 13.02vw 13.02vw 9.9vw 13.02vw;
+        column-gap: 3.125vw;
+
+        &-cells--regular {
+          grid-template-rows: 100px;
+        }
       }
     }
   }

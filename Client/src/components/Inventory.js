@@ -7,12 +7,22 @@ import Create from "./Create";
 
 function TableHeader() {
   return (
-    <div className="inventory__tableHeader--nonMobile">
-      <label className="inventory__tableHeader-item"> ITEM</label>
-      <label className="inventory__tableHeader-item"> LAST ORDERED</label>
-      <label className="inventory__tableHeader-item"> LOCATION</label>
-      <label className="inventory__tableHeader-item"> QUANTITY</label>
-      <label className="inventory__tableHeader-item"> STATUS</label>
+    <div className="inventory__table-header--nonMobile inventory__table-row">
+      <label className="inventory__table-header-cell  inventory__table-cell--item">
+        ITEM
+      </label>
+      <label className="inventory__table-header-cell inventory__table-cell--date">
+        LAST ORDERED
+      </label>
+      <label className="inventory__table-header-cell inventory__table-cell--location">
+        LOCATION
+      </label>
+      <label className="inventory__table-header-cell inventory__table-cell--quantity">
+        QUANTITY
+      </label>
+      <label className="inventory__table-header-cell inventory__table-cell--status">
+        STATUS
+      </label>
     </div>
   );
 }
@@ -25,57 +35,64 @@ class TableRow extends Component {
   render() {
     const product = this.props.product;
     return (
-      <div className="inventory__row">
-        {/* Row's regular items */}
-        <div className="inventory__row-items--regular">
-          <label className="inventory__tableHeader-item--mobile"> ITEM</label>
-          <div className="inventory__row-item">
+      <div className="inventory__table-row">
+        {/* Row's regular cells */}
+        <div className="inventory__table-row-cells--regular">
+          <label className="inventory__table-header-cell--mobile"> ITEM</label>
+          <div className="inventory__table-row-cell inventory__table-cell--item">
             <Link
-              className="inventory__row-item--name"
+              className="inventory__table-row-cell--name"
               to={`/inventory/${product.id}`}
             >
               {product.name}
             </Link>
-            <p className="inventory__row-item--description">
+            <p className="inventory__table-row-cell--description">
               {product.description}
             </p>
           </div>
-          <label className="inventory__tableHeader-item--mobile">
+          <label className="inventory__table-header-cell--mobile">
             LAST ORDERED
           </label>
-          <p className="inventory__row-item">{product.date}</p>
-          <label className="inventory__tableHeader-item--mobile">
-            {" "}
+          <p className="inventory__table-row-cell inventory__table-cell--date">
+            {product.date}
+          </p>
+          <label className="inventory__table-header-cell--mobile">
             LOCATION
           </label>
-          <p className="inventory__row-item">
+          <p className="inventory__table-row-cell inventory__table-cell--location">
             {product.city},{product.country}
           </p>
-          <label className="inventory__tableHeader-item--mobile">
-            {" "}
+          <label className="inventory__table-header-cell--mobile">
             QUANTITY
           </label>
-          <p className="inventory__row-item"> {product.quantity}</p>
-          <label className="inventory__tableHeader-item--mobile"> STATUS</label>
-          <p className="inventory__row-item"> {product.status}</p>
+          <p className="inventory__table-row-cell inventory__table-cell--quantity">
+            {product.quantity}
+          </p>
+          <label className="inventory__table-header-cell--mobile">
+            {" "}
+            STATUS
+          </label>
+          <p className="inventory__table-row-cell inventory__table-cell--status">
+            {product.status}
+          </p>
         </div>
 
         {/* Row's kebab icon and hidden button */}
-        <div className="inventory__row-items--hidden">
+        <div className="inventory__table-row-cells--hidden">
           {" "}
           <img
-            className="inventory__row-kebab"
+            className="inventory__table-row-kebab"
             src={kebabIcon}
             alt="Remove icon"
             onClick={this.handleKebab}
           />
           <div
-            className="inventory__row-dropdown"
+            className="inventory__table-row-dropdown"
             ref={this.showRemove}
             style={{ display: "none" }}
           >
             <button
-              className="inventory__row-btn"
+              className="inventory__table-row-btn"
               id={product.id}
               onClick={this.props.removeFunction}
             >
