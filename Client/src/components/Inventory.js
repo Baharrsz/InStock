@@ -126,9 +126,10 @@ export default class Inventory extends Component {
           <div className="inventory__table">
             <TableHeader />
             <div className="inventory__Rows">{tableRows}</div>
-            <button className="inventory__btn" onClick={this.showAddPage}>
-              +
-            </button>
+            <button
+              className="inventory__btn"
+              onClick={this.showAddPage}
+            ></button>
           </div>
           {/* <div
             className="overlay"

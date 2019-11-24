@@ -29,6 +29,21 @@
     background-position: 24px 16px;
   }
 
+  &__btn {
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    right: 8vw;
+    bottom: 15vh;
+    background-color: $darkblue;
+    border: none;
+    background-image: url(../assets/icons/SVG/Icon-add.svg);
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+  }
+
   &__table {
     padding: 0 5vw;
   }

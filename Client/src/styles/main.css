@@ -490,7 +490,22 @@ label {
 }
 
 .inventory__search:focus {
-  border: 1px solid black;
+  border: 1px solid #323232;
+}
+
+.inventory__btn {
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  right: 8vw;
+  bottom: 15vh;
+  background-color: #0065ad;
+  border: none;
+  background-image: url(../assets/icons/SVG/Icon-add.svg);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
 }
 
 .inventory__table {
