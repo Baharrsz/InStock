@@ -38,7 +38,7 @@ export default class InventoryDetails extends Component {
               backgroundColor:
                 this.state.selectedProduct.status.toUpperCase().indexOf("OUT") <
                 0
-                  ? "limegreen"
+                  ? "#86d3ff"
                   : "#AFAFAF"
             }}
           >
@@ -133,10 +133,15 @@ export default class InventoryDetails extends Component {
               <Switch
                 onChange={this.statusSwitch}
                 checked={this.state.checked}
-                checkedIcon={false}
+                onColor="#86d3ff"
+                onHandleColor="#2693e6"
+                handleDiameter={30}
                 uncheckedIcon={false}
-                onColor="#32CD32"
-                offColor="#AFAFAF"
+                checkedIcon={false}
+                boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
+                activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
+                height={20}
+                width={48}
               />
             </label>
             <div className="product__warehouse">

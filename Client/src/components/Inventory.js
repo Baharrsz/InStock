@@ -174,8 +174,7 @@ export default class Inventory extends Component {
       city: submit.target.city.value,
       country: submit.target.country.value,
       quantity: submit.target.quantity.value,
-      status: "instock",
-      // submit.target.status.value,
+      status: submit.target.status.value,
       customer: "user",
       description: submit.target.description.value,
       warehouse: submit.target.warehouse.value

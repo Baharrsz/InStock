@@ -124,6 +124,8 @@ export default class Create extends Component {
                 width={48}
                 className="react-switch"
                 id="material-switch"
+                // Bahar: This is for passing the status info to the server
+                value={this.state.checked ? "In Stock" : "Out of Stock"}
               />
             </label>
           </div>
