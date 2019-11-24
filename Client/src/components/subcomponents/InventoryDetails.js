@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import arrow from "../../assets/icons/SVG/Icon-back-arrow.svg";
+import Switch from "react-switch";
 
 export default class InventoryDetails extends Component {
   constructor(props) {
@@ -11,7 +12,11 @@ export default class InventoryDetails extends Component {
     this.cancelBtn = React.createRef();
   }
 
-  state = { selectedProduct: undefined, disabled: true };
+  state = {
+    selectedProduct: undefined,
+    disabled: true,
+    checked: undefined
+  };
 
   render() {
     const product = this.state.selectedProduct;
@@ -26,7 +31,19 @@ export default class InventoryDetails extends Component {
             </Link>
             {product.name}
           </h1>
-          <div className="product__status">{product.status}</div>
+
+          <div
+            className="product__status"
+            style={{
+              backgroundColor:
+                this.state.selectedProduct.status.toUpperCase().indexOf("OUT") <
+                0
+                  ? "limegreen"
+                  : "#AFAFAF"
+            }}
+          >
+            {product.status}
+          </div>
           <input
             className="product__descriptionplus"
             name="descriptionPlus"
@@ -107,6 +124,21 @@ export default class InventoryDetails extends Component {
                 disabled={disabled}
               />
             </div>
+            <label
+              className="product__statusSwitch"
+              style={{ visibility: this.state.disabled ? "hidden" : "visible" }}
+            >
+              STATUS
+              <span>In Stock</span>
+              <Switch
+                onChange={this.statusSwitch}
+                checked={this.state.checked}
+                checkedIcon={false}
+                uncheckedIcon={false}
+                onColor="#32CD32"
+                offColor="#AFAFAF"
+              />
+            </label>
             <div className="product__warehouse">
               <label className="product__warehouse-lable">WAREHOUSE NAME</label>
               <input
@@ -149,10 +181,18 @@ export default class InventoryDetails extends Component {
   componentDidMount() {
     console.log("first mount");
     const url = `http://localhost:8080/inventory/${this.props.id}`;
-    axios
-      .get(url)
-      .then(response => this.setState({ selectedProduct: response.data }));
+    axios.get(url).then(response => {
+      this.setState({
+        selectedProduct: response.data,
+        checked:
+          response.data.status.toUpperCase().indexOf("OUT") < 0 ? true : false
+      });
+    });
   }
+
+  statusSwitch = checked => {
+    this.setState({ checked });
+  };
 
   startEdit = click => {
     click.preventDefault();
@@ -172,13 +212,14 @@ export default class InventoryDetails extends Component {
 
   submitEdit = submit => {
     submit.preventDefault();
+    const status = this.state.checked ? "In Stock" : "Out of Stock";
     const edited = {
       name: this.state.selectedProduct.name,
       description: submit.target.description.value,
       descriptionplus: submit.target.descriptionPlus.value,
       date: submit.target.date.value,
       quantity: submit.target.quantity.value,
-      status: "In Stock",
+      status: status,
       customer: submit.target.customer.value,
       warehouse: submit.target.warehouse.value,
       city: submit.target.city.value,
@@ -197,10 +238,6 @@ export default class InventoryDetails extends Component {
         this.setState({ selectedProduct: response.data });
       });
 
-    // this.endEdit(submit);
-    this.editBtn.current.style.display = "block";
-    this.submitBtn.current.style.display = "none";
-    this.cancelBtn.current.style.display = "none";
-    this.setState({ disabled: true });
+    this.endEdit(submit);
   };
 }

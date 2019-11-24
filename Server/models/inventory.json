@@ -5,7 +5,7 @@
     "descriptionplus": "Here is a very brief description of the product",
     "date": "05/24/2018",
     "quantity": "12,000",
-    "status": "In Stock",
+    "status": "Out of Stock",
     "customer": "Mark Sauders",
     "warehouse": "Warehouse Number 2",
     "city": "Toronto, ON",
@@ -16,47 +16,35 @@
   {
     "name": "2 Product Name Here",
     "description": "Here is a very brief description of the product",
-    "descriptionplus": "Here is a more detailed summary of the product name. Its uses, industries, and possible attributes that could be used to describe the product.",
+    "descriptionplus": "Here is a very brief description of the product",
     "date": "05/24/2018",
     "quantity": "1200",
+    "status": "In Stock",
+    "customer": "Mark Sauders",
+    "warehouse": "Warehouse Number 3",
+    "city": "Toronto, ON",
+    "country": "Canada",
+    "id": "123456",
+    "categories": "Industrial,Automotive,Heavy,Mechanical,Engineering"
+  },
+  {
+    "name": "3 Product Name Here",
+    "description": "Here is a very brief description of the product",
+    "descriptionplus": "Here is a very brief description of the product",
+    "date": "05/24/2018",
+    "quantity": "12,000",
     "status": "Out of Stock",
     "customer": "Mark Sauders",
     "warehouse": "Warehouse Number 1",
     "city": "Toronto, ON",
     "country": "Canada",
-    "id": "123456",
-    "categories": [
-      "Industrial",
-      "Automotive",
-      "Heavy",
-      "Mechanical",
-      "Engineering"
-    ]
-  },
-  {
-    "name": "3 Product Name Here",
-    "description": "Here is a very brief description of the product",
-    "descriptionplus": "Here is a more detailed summary of the product name. Its uses, industries, and possible attributes that could be used to describe the product.",
-    "date": "05/24/2018",
-    "quantity": "12,000",
-    "status": "Instock",
-    "customer": "Mark Sauders",
-    "warehouse": "Warehouse Number 1",
-    "city": "Toronto, ON",
-    "country": "Canada",
     "id": "123457",
-    "categories": [
-      "Industrial",
-      "Automotive",
-      "Heavy",
-      "Mechanical",
-      "Engineering"
-    ]
+    "categories": "Industrial,Automotive,Heavy,Mechanical,Engineering"
   },
   {
     "name": "4 Product Name Here",
     "description": "Here is a very brief description of the product",
-    "descriptionplus": "Here is a more detailed summary of the product name. Its uses, industries, and possible attributes that could be used to describe the product.",
+    "descriptionplus": "Here is a very brief description of the product",
     "date": "05/24/2018",
     "quantity": "1200",
     "status": "Out of Stock",
@@ -65,13 +53,7 @@
     "city": "Toronto, ON",
     "country": "Canada",
     "id": "123458",
-    "categories": [
-      "Industrial",
-      "Automotive",
-      "Heavy",
-      "Mechanical",
-      "Engineering"
-    ]
+    "categories": "Industrial,Automotive,Heavy,Mechanical,Engineering"
   },
   {
     "name": "5 Product Name Here",
