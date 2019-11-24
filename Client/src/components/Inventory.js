@@ -26,48 +26,62 @@ class TableRow extends Component {
     const product = this.props.product;
     return (
       <div className="inventory__row">
-        <div className="inventory__row-item">
+        {/* Row's regular items */}
+        <div className="inventory__row-items--regular">
           <label className="inventory__tableHeader-item--mobile"> ITEM</label>
-          <Link
-            className="inventory__row-item--name"
-            to={`/inventory/${product.id}`}
-          >
-            {product.name}
-          </Link>
-          <p className="inventory__row-item--description">
-            {product.description}
+          <div className="inventory__row-item">
+            <Link
+              className="inventory__row-item--name"
+              to={`/inventory/${product.id}`}
+            >
+              {product.name}
+            </Link>
+            <p className="inventory__row-item--description">
+              {product.description}
+            </p>
+          </div>
+          <label className="inventory__tableHeader-item--mobile">
+            LAST ORDERED
+          </label>
+          <p className="inventory__row-item">{product.date}</p>
+          <label className="inventory__tableHeader-item--mobile">
+            {" "}
+            LOCATION
+          </label>
+          <p className="inventory__row-item">
+            {product.city},{product.country}
           </p>
+          <label className="inventory__tableHeader-item--mobile">
+            {" "}
+            QUANTITY
+          </label>
+          <p className="inventory__row-item"> {product.quantity}</p>
+          <label className="inventory__tableHeader-item--mobile"> STATUS</label>
+          <p className="inventory__row-item"> {product.status}</p>
         </div>
-        <label className="inventory__tableHeader-item--mobile">
-          LAST ORDERED
-        </label>
-        <p className="inventory__row-item">{product.date}</p>
-        <label className="inventory__tableHeader-item--mobile"> LOCATION</label>
-        <p className="inventory__row-item">
-          {product.city},{product.country}
-        </p>
-        <label className="inventory__tableHeader-item--mobile"> QUANTITY</label>
-        <p className="inventory__row-item"> {product.quantity}</p>
-        <label className="inventory__tableHeader-item--mobile"> STATUS</label>
-        <p className="inventory__row-item"> {product.status}</p>
-        <img
-          className="inventory__row-item"
-          src={kebabIcon}
-          alt="Remove icon"
-          onClick={this.handleKebab}
-        />
-        <div
-          className="inventory__row-dropdown"
-          ref={this.showRemove}
-          style={{ display: "none" }}
-        >
-          <button
-            className="inventory__row-btn"
-            id={product.id}
-            onClick={this.props.removeFunction}
+
+        {/* Row's kebab icon and hidden button */}
+        <div className="inventory__row-items--hidden">
+          {" "}
+          <img
+            className="inventory__row-kebab"
+            src={kebabIcon}
+            alt="Remove icon"
+            onClick={this.handleKebab}
+          />
+          <div
+            className="inventory__row-dropdown"
+            ref={this.showRemove}
+            style={{ display: "none" }}
           >
-            Remove
-          </button>
+            <button
+              className="inventory__row-btn"
+              id={product.id}
+              onClick={this.props.removeFunction}
+            >
+              Remove
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -108,7 +122,7 @@ export default class Inventory extends Component {
       return (
         <div className="inventory">
           <h1 className="inventory__title">Inventory</h1>
-          <input className="inventory__search" placeholder="search" />
+          <input className="inventory__search" placeholder="Search" />
           <div className="inventory__table">
             <TableHeader />
             <div className="inventory__Rows">{tableRows}</div>
