@@ -214,7 +214,7 @@ export default class Inventory extends Component {
       country: submit.target.country.value,
       quantity: submit.target.quantity.value,
       status: submit.target.status.value,
-      customer: "user",
+      customer: submit.target.customer.value,
       description: submit.target.description.value,
       warehouse: submit.target.warehouse.value
     };
