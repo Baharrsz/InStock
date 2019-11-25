@@ -112,12 +112,12 @@
       font-family: AvenirDemiBold;
     }
     &__container {
-      &__switch {
-        width: 220px;
-      }
       &-title {
       }
       &-switch {
+        display: flex;
+        justify-content: space-between;
+        width: 220px;
       }
       &-input {
         width: 220px;

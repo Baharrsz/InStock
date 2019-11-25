@@ -14,7 +14,6 @@ export default class Create extends Component {
     this.city = React.createRef();
     this.country = React.createRef();
   }
-​
   render() {
     return !this.state.warehouses ? (
       <>Loading...</>
@@ -85,7 +84,6 @@ export default class Create extends Component {
                 placeholder="Country"
               ></input>
             </div>
-​
             {/* Quantity input */}
             <div className="create__container">
               <h4 className="create__container-title silver">QUANTITY</h4>
@@ -97,7 +95,6 @@ export default class Create extends Component {
               ></input>
             </div>
           </div>
-​
           <div className="create-flex">
             {/* Customer */}
             <div className="create__container">
@@ -108,7 +105,6 @@ export default class Create extends Component {
                 className="create__container-input"
               ></input>
             </div>
-​
             <div className="create__container__switch">
               <h4 className="create__container-title silver">STATUS</h4>
               <div className="create__container-flex" id="instock-flex">
@@ -159,14 +155,14 @@ export default class Create extends Component {
       </div>
     );
   }
-​
+
   componentDidMount() {
     this.getWarehouses();
   }
-​
+
   populateWarehouse = select => {
     const selectedWarehouse = select.target.value;
-​
+
     const warehouseInfo = this.state.warehouses.find(
       location => location.warehouse === selectedWarehouse
     );
@@ -178,7 +174,6 @@ export default class Create extends Component {
       this.country.current.value = "";
     }
   };
-​
   getWarehouses = () => {
     axios.get("http://localhost:8080/locations/content").then(response => {
       this.setState({ warehouses: response.data }, () => {
@@ -188,12 +183,10 @@ export default class Create extends Component {
           );
         });
         console.log("options", options);
-​
         this.setState({ warehouseNames: options });
       });
     });
   };
-​
   handleChange(checked) {
     this.setState({ checked });
     console.log(checked);

@@ -208,13 +208,13 @@ export default class Inventory extends Component {
   addProduct = submit => {
     submit.preventDefault();
     const newProduct = {
-      name: submit.target.product.value,
+      name: submit.target.name.value,
       date: submit.target.date.value,
       city: submit.target.city.value,
       country: submit.target.country.value,
       quantity: submit.target.quantity.value,
       status: submit.target.status.value,
-      customer: "user",
+      customer: submit.target.customer.value,
       description: submit.target.description.value,
       warehouse: submit.target.warehouse.value
     };

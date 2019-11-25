@@ -1,7 +1,6 @@
 html * {
   margin: unset;
   padding: unset;
-  font-family: "AvenirNextRegular";
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -264,6 +263,32 @@ label {
   text-decoration: none;
 }
 
+.location__add-icon {
+  background-color: #002f5f;
+  width: 60px;
+  height: 60px;
+  padding: 0.8%;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 15vh;
+  right: 8vw;
+}
+
+.location__add {
+  background: none;
+  border: none;
+}
+
+.location__add:focus {
+  outline: none;
+}
+
+.location__add::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
 @media only screen and (min-width: 768px) {
   .location {
     margin: 0 3.125vw;
@@ -341,7 +366,7 @@ label {
   }
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1440px) {
   .location {
     margin: 0 12.5vw;
   }
@@ -384,7 +409,6 @@ label {
 .silver {
   color: #afafaf;
 }
-
 
 @media only screen and (max-width: 767px) {
   #label-black {
@@ -450,7 +474,7 @@ label {
     height: 48px;
     border: unset;
     border-radius: 5px;
-    background: #0065ad;
+    background: #002f5f;
     color: white;
     font-family: AvenirDemiBold;
     margin-bottom: 16px;
@@ -461,7 +485,7 @@ label {
     border: unset;
     background: unset;
     border-radius: 5px;
-    color: #0065ad;
+    color: #002f5f;
     font-family: AvenirDemiBold;
   }
 }
@@ -505,7 +529,13 @@ label {
   .create-title {
     font-family: AvenirDemiBold;
   }
-  .create__container__switch {
+  .create__container-switch {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     width: 220px;
   }
   .create__container-input {
@@ -556,7 +586,7 @@ label {
     height: 48px;
     border: unset;
     border-radius: 5px;
-    background: #0065ad;
+    background: #002f5f;
     color: white;
     font-family: AvenirDemiBold;
     -webkit-box-ordinal-group: 3;
@@ -569,11 +599,845 @@ label {
     border: unset;
     background: unset;
     border-radius: 5px;
-    color: #0065ad;
+    color: #002f5f;
     font-family: AvenirDemiBold;
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
+  }
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.inventory {
+  font-family: "AvenirRegular";
+}
+
+.inventory__title {
+  font-family: "AvenirBold";
+  margin: 32px 0 16px 5vw;
+}
+
+.inventory__search {
+  border: 1px solid #e1e1e1;
+  background-color: #fafafa;
+  height: 48px;
+  border-radius: 2px;
+  outline: none;
+  margin: 16px 0 32px 5vw;
+  width: 252px;
+  padding-left: 48px;
+  background-image: url(../assets/icons/SVG/Icon-search.svg);
+  background-repeat: no-repeat;
+  background-position: 24px 16px;
+}
+
+.inventory__search:focus {
+  border: 1px solid #323232;
+}
+
+.inventory__btn {
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  right: 8vw;
+  bottom: 15vh;
+  background-color: #002f5f;
+  border: none;
+  background-image: url(../assets/icons/SVG/Icon-add.svg);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.inventory__table {
+  padding: 0 5vw;
+}
+
+.inventory__table-header--nonMobile {
+  display: none;
+}
+
+.inventory__table-header-cell--mobile {
+  margin: 24px 0 16px 0;
+}
+
+.inventory__table-row {
+  border-bottom: 1px solid #e1e1e1;
+  padding-top: 24px;
+  position: relative;
+}
+
+.inventory__table-row-cell {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 16px 0 24px 0;
+}
+
+.inventory__table-row-cell--name {
+  font-family: "AvenirDemiBold";
+  text-decoration: none;
+  color: black;
+  margin-bottom: 16px;
+}
+
+.inventory__table-row-cells--hidden {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.inventory__table-row-kebab {
+  position: absolute;
+  top: 24px;
+  right: 0;
+}
+
+.inventory__table-row-dropdown {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  border: 1px solid #e1e1e1;
+  padding: 10px;
+  background-color: #fff;
+}
+
+@media only screen and (min-width: 768px) {
+  .inventory {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 3.125vw auto auto 3.125vw;
+        grid-template-columns: 3.125vw auto auto 3.125vw;
+    -ms-grid-rows: auto auto;
+        grid-template-rows: auto auto;
+        grid-template-areas: ". title search ." ". table table .";
+  }
+  .inventory__btn {
+    right: 13vw;
+  }
+  .inventory__title {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: title;
+    margin: 48px 0;
+  }
+  .inventory__search {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+    grid-area: search;
+    margin-top: 40px;
+    -ms-grid-column-align: end;
+        justify-self: end;
+  }
+  .inventory__table {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 2;
+    grid-area: table;
+    padding: 0;
+  }
+  .inventory__table-header--nonMobile {
+    display: block;
+    border: none;
+  }
+  .inventory__table-header-cell--mobile {
+    display: none;
+  }
+  .inventory__table-row-cell {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .inventory__table-row, .inventory__table-row-cells--regular {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 29.17vw 13.02vw 13.02vw 9.9vw 13.02vw;
+        grid-template-columns: 29.17vw 13.02vw 13.02vw 9.9vw 13.02vw;
+    -webkit-column-gap: 3.125vw;
+            column-gap: 3.125vw;
+  }
+  .inventory__table-row-cells--regular, .inventory__table-row-cells--regular-cells--regular {
+    -ms-grid-rows: 100px;
+        grid-template-rows: 100px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .inventory {
+    -ms-grid-columns: 12.5vw auto auto 12.5vw;
+        grid-template-columns: 12.5vw auto auto 12.5vw;
+  }
+  .inventory__btn {
+    width: 80px;
+    height: 80px;
+    background-size: 24px;
+  }
+  .inventory-row-cells--regular {
+    -ms-grid-rows: 80px;
+        grid-template-rows: 80px;
+  }
+}
+
+.warehouse {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 20px;
+}
+
+.warehouse__seperater {
+  display: none;
+}
+
+.warehouse__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 24px;
+  line-height: 32px;
+  font-family: "AvenirBold";
+  margin: 0 5vw 20px 5vw;
+}
+
+.warehouse__title-link {
+  padding-right: 5%;
+  text-decoration: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.warehouse__address {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 5vw 20px 5vw;
+  font-size: 13px;
+  line-height: 18px;
+  font-family: "AvenirRegular";
+}
+
+.warehouse__address-label {
+  font-size: 12px;
+  line-height: 20px;
+  font-family: "AvenirDemiBold";
+  color: #afafaf;
+  margin-bottom: 10px;
+}
+
+.warehouse__address-street {
+  margin-bottom: 20px;
+}
+
+.warehouse__address-location {
+  margin-bottom: 10px;
+}
+
+.warehouse__contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 5vw 20px 5vw;
+  font-size: 13px;
+  line-height: 18px;
+  font-family: "AvenirRegular";
+}
+
+.warehouse__contact-label {
+  font-size: 12px;
+  line-height: 20px;
+  font-family: "AvenirDemiBold";
+  color: #afafaf;
+  margin-bottom: 10px;
+}
+
+.warehouse__contact-manager {
+  margin-bottom: 20px;
+}
+
+.warehouse__contact-info {
+  margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+  .warehouse {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .warehouse__title {
+    font-size: 36px;
+    line-height: 44px;
+    margin-left: 3vw;
+    margin-right: 3vw;
+  }
+  .warehouse__seperater {
+    display: block;
+    width: 94%;
+  }
+  .warehouse__tabdesk-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    font-size: 14px;
+    line-height: 22px;
+    margin: 0 3vw;
+  }
+  .warehouse__address {
+    margin: 20px 30vw 20px 0;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .warehouse__address-label {
+    font-size: 12px;
+    line-height: 20px;
+    font-family: "AvenirDemiBold";
+    color: #afafaf;
+    margin-bottom: 10px;
+  }
+  .warehouse__contact {
+    margin: 20px 0 20px 0;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .warehouse__contact-label {
+    font-size: 12px;
+    line-height: 20px;
+    font-family: "AvenirDemiBold";
+    color: #afafaf;
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .warehouse__title {
+    margin-left: 12.5vw;
+    margin-right: 12.5vw;
+  }
+  .warehouse__seperater {
+    width: 75%;
+  }
+  .warehouse__tabdesk-wrapper {
+    margin: 0 12.5vw;
+  }
+}
+
+.productDetail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: #e1e1e1;
+}
+
+.productDetail__left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 13px;
+  line-height: 18px;
+  font-family: "AvenirRegular";
+  margin-left: 5vw;
+  margin-top: 20px;
+  width: 95%;
+}
+
+.productDetail__left-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.productDetail__left-item--label {
+  font-size: 12px;
+  line-height: 20px;
+  font-family: "AvenirDemiBold";
+  color: #afafaf;
+  margin-bottom: 15px;
+}
+
+.productDetail__left-item--name {
+  font-size: 14px;
+  line-height: 22px;
+  font-family: "AvenirDemiBold";
+  margin-bottom: 15px;
+}
+
+.productDetail__left-date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.productDetail__left-date--label {
+  font-size: 12px;
+  line-height: 20px;
+  font-family: "AvenirDemiBold";
+  color: #afafaf;
+  margin-bottom: 15px;
+}
+
+.productDetail__left-location {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.productDetail__left-location--label {
+  font-size: 12px;
+  line-height: 20px;
+  font-family: "AvenirDemiBold";
+  color: #afafaf;
+  margin-bottom: 15px;
+}
+
+.productDetail__left-quantity {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.productDetail__left-quantity--label {
+  font-size: 12px;
+  line-height: 20px;
+  font-family: "AvenirDemiBold";
+  color: #afafaf;
+  margin-bottom: 15px;
+}
+
+.productDetail__left-status {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.productDetail__left-status--label {
+  font-size: 12px;
+  line-height: 20px;
+  font-family: "AvenirDemiBold";
+  color: #afafaf;
+  margin-bottom: 15px;
+}
+
+.productDetail__right {
+  margin-right: 5vw;
+  margin-top: 20px;
+}
+
+.productDetail__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+}
+
+.detail-seperater {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .productDetail {
+    text-align: left;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .productDetail__left {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 94%;
+    font-size: 14px;
+    line-height: 22px;
+    margin-left: 3vw;
+  }
+  .productDetail__left-item {
+    height: 100%;
+    width: 30%;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+  }
+  .productDetail__left-item--label {
+    display: none;
+  }
+  .productDetail__left-item--name {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .productDetail__left-date {
+    height: 100%;
+    width: 15%;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+  }
+  .productDetail__left-date--label {
+    display: none;
+  }
+  .productDetail__left-location {
+    height: 100%;
+    width: 15%;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+  }
+  .productDetail__left-location--label {
+    display: none;
+  }
+  .productDetail__left-quantity {
+    height: 100%;
+    width: 15%;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+  }
+  .productDetail__left-quantity--label {
+    display: none;
+  }
+  .productDetail__left-status {
+    height: 100%;
+    width: 15%;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+  }
+  .productDetail__left-status--label {
+    display: none;
+  }
+  .productDetail__right {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-right: 3vw;
+  }
+  .productDetail__content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .item-0 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .detail-seperater {
+    display: block;
+    background-color: #e1e1e1;
+    padding: 0;
+    margin: 0 3vw;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .productDetail__left {
+    width: 75%;
+    margin-left: 12.5vw;
+  }
+  .productDetail__right {
+    margin-right: 12.5vw;
+  }
+  .detail-seperater {
+    margin: 0 12.5vw;
+  }
+}
+
+.location__createNew {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 3000px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.location__createNew-form {
+  background-color: white;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 3000px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.location__createNew-form--title {
+  margin: 20px 5vw;
+  width: 90vw;
+  font-size: 24px;
+  line-height: 32px;
+  font-family: "AvenirBold";
+}
+
+.location__createNew-form--item {
+  margin: 10px 5vw;
+  width: 90vw;
+}
+
+.location__createNew-form--item--label {
+  font-size: 12px;
+  line-height: 20px;
+  font-family: "AvenirDemiBold";
+  color: #afafaf;
+}
+
+.location__createNew-form--item--input {
+  border: 1px #e1e1e1 solid;
+  width: 90vw;
+  height: 45px;
+  padding-left: 5%;
+}
+
+.location__createNew-form--submit {
+  width: 90vw;
+  background-color: #004892;
+  color: white;
+  font-family: "AvenirDemiBold";
+  font-size: 14px;
+  line-height: 22px;
+  height: 40px;
+  border-radius: 4px;
+  margin-left: 5vw;
+}
+
+.location__createNew-form--submit:focus {
+  outline: none;
+}
+
+.location__createNew-form--cancel {
+  width: 90vw;
+  color: #004892;
+  font-family: "AvenirDemiBold";
+  font-size: 14px;
+  line-height: 22px;
+  height: 40px;
+  margin-left: 5vw;
+  background: none;
+  border: none;
+}
+
+.location__createNew-form--cancel:focus {
+  outline: none;
+}
+
+.fas {
+  width: 30px;
+}
+
+@media only screen and (min-width: 768px) {
+  .location__createNew-form {
+    width: 70vw;
+    height: 70vh;
+    margin: 20vh 15vw;
+  }
+  .location__createNew-form--title {
+    width: 60vw;
+  }
+  .location__createNew-form--item {
+    width: 20vw;
+  }
+  .location__createNew-form--item--label {
+    width: 100%;
+  }
+  .location__createNew-form--item--input {
+    width: 100%;
+  }
+  .location__createNew-form--submit {
+    width: 15vw;
+  }
+  .location__createNew-form--cancel {
+    width: 15vw;
+  }
+  .tabdesk__button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    width: 42vw;
+  }
+  .description__input {
+    height: 100px;
+  }
+  .tabdesk__wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .formatter {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .tabdesk__description {
+    width: 72%;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .location__createNew-form {
+    width: 60vw;
+    margin: 20vh 18vw;
+  }
+  .location__createNew-form--title {
+    width: 32vw;
+  }
+  .location__createNew-form--item {
+    width: 11vw;
+  }
+  .tabdesk__description {
+    width: 77%;
+  }
+  .tabdesk__wrapper {
+    width: 70%;
+  }
+  .tabdesk__button {
+    width: 33vw;
   }
 }
 
@@ -710,5 +1574,13 @@ label {
     padding-bottom: 25.5px;
     border-bottom: 4px solid white;
   }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
 }
 /*# sourceMappingURL=main.css.map */
