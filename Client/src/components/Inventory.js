@@ -208,7 +208,7 @@ export default class Inventory extends Component {
   addProduct = submit => {
     submit.preventDefault();
     const newProduct = {
-      name: submit.target.product.value,
+      name: submit.target.name.value,
       date: submit.target.date.value,
       city: submit.target.city.value,
       country: submit.target.country.value,
@@ -219,7 +219,6 @@ export default class Inventory extends Component {
       warehouse: submit.target.warehouse.value
     };
     axios.post("http://localhost:8080/inventory", newProduct).then(response => {
-      console.log(response.data);
       this.setState({
         inventoryList: [...this.state.inventoryList, response.data]
       });

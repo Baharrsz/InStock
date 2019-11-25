@@ -39,7 +39,7 @@ export default class Create extends Component {
   render() {
     return (
       <div className="create-background">
-        <form onSubmit={submit => this.uploadSubmit(submit)} className="create">
+        <form onSubmit={this.uploadSubmit} className="create">
           <h1 className="create-title">Create New</h1>
           <div className="create-flex">
             {/* Last Product name input */}
