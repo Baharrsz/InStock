@@ -471,8 +471,26 @@ label {
     font-size: 14px;
   }
   .create {
-    margin: 0 48px;
-    width: 480px;
+    padding: 48px;
+    border-radius: 5px;
+    width: 576px;
+    background: white;
+  }
+  .create-background {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
   }
   .create-flex {
     display: -webkit-box;

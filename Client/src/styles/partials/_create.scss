@@ -85,8 +85,22 @@
     font-size: 14px;
   }
   .create {
-    margin: 0 48px;
-    width: 480px;
+    padding: 48px;
+    border-radius: 5px;
+    width: 576px;
+    background: white;
+
+    &-background {
+      background-color: rgba(0, 0, 0, 0.5);
+      position: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+    }
 
     &-flex {
       display: flex;
