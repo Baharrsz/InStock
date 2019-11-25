@@ -7,12 +7,22 @@ import Create from "./Create";
 
 function TableHeader() {
   return (
-    <div className="inventory__tableHeader">
-      <div className="inventory__tableHeader-item"> ITEM</div>
-      <div className="inventory__tableHeader-item"> LAST ORDERED</div>
-      <div className="inventory__tableHeader-item"> LOCATION</div>
-      <div className="inventory__tableHeader-item"> QUANTITY</div>
-      <div className="inventory__tableHeader-item"> STATUS</div>
+    <div className="inventory__table-header--nonMobile inventory__table-row">
+      <label className="inventory__table-header-cell  inventory__table-cell--item">
+        ITEM
+      </label>
+      <label className="inventory__table-header-cell inventory__table-cell--date">
+        LAST ORDERED
+      </label>
+      <label className="inventory__table-header-cell inventory__table-cell--location">
+        LOCATION
+      </label>
+      <label className="inventory__table-header-cell inventory__table-cell--quantity">
+        QUANTITY
+      </label>
+      <label className="inventory__table-header-cell inventory__table-cell--status">
+        STATUS
+      </label>
     </div>
   );
 }
@@ -25,42 +35,70 @@ class TableRow extends Component {
   render() {
     const product = this.props.product;
     return (
-      <div className="inventory__row">
-        <div className="inventory__row-item">
-          <Link
-            className="inventory__row-item--name"
-            to={`/inventory/${product.id}`}
-          >
-            {product.name}
-          </Link>
-          <p className="inventory__row-item--description">
-            {product.description}
+      <div className="inventory__table-row">
+        {/* Row's regular cells */}
+        <div className="inventory__table-row-cells--regular">
+          <label className="inventory__table-header-cell--mobile"> ITEM</label>
+          <div className="inventory__table-row-cell inventory__table-cell--item">
+            <Link
+              className="inventory__table-row-cell--name"
+              to={`/inventory/${product.id}`}
+            >
+              {product.name}
+            </Link>
+            <p className="inventory__table-row-cell--description">
+              {product.description}
+            </p>
+          </div>
+          <label className="inventory__table-header-cell--mobile">
+            LAST ORDERED
+          </label>
+          <p className="inventory__table-row-cell inventory__table-cell--date">
+            {product.date}
+          </p>
+          <label className="inventory__table-header-cell--mobile">
+            LOCATION
+          </label>
+          <p className="inventory__table-row-cell inventory__table-cell--location">
+            {product.city},{product.country}
+          </p>
+          <label className="inventory__table-header-cell--mobile">
+            QUANTITY
+          </label>
+          <p className="inventory__table-row-cell inventory__table-cell--quantity">
+            {product.quantity}
+          </p>
+          <label className="inventory__table-header-cell--mobile">
+            {" "}
+            STATUS
+          </label>
+          <p className="inventory__table-row-cell inventory__table-cell--status">
+            {product.status}
           </p>
         </div>
-        <p className="inventory__row-item">{product.date}</p>
-        <p className="inventory__row-item">
-          {product.city},{product.country}
-        </p>
-        <p className="inventory__row-item"> {product.quantity}</p>
-        <p className="inventory__row-item"> {product.status}</p>
-        <img
-          className="inventory__row-item"
-          src={kebabIcon}
-          alt="Remove icon"
-          onClick={this.handleKebab}
-        />
-        <div
-          className="inventory__row-dropdown"
-          ref={this.showRemove}
-          style={{ display: "none" }}
-        >
-          <button
-            className="inventory__row-btn"
-            id={product.id}
-            onClick={this.props.removeFunction}
+
+        {/* Row's kebab icon and hidden button */}
+        <div className="inventory__table-row-cells--hidden">
+          {" "}
+          <img
+            className="inventory__table-row-kebab"
+            src={kebabIcon}
+            alt="Remove icon"
+            onClick={this.handleKebab}
+          />
+          <div
+            className="inventory__table-row-dropdown"
+            ref={this.showRemove}
+            style={{ display: "none" }}
           >
-            Remove
-          </button>
+            <button
+              className="inventory__table-row-btn"
+              id={product.id}
+              onClick={this.props.removeFunction}
+            >
+              Remove
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -79,44 +117,12 @@ export default class Inventory extends Component {
     super(props);
     // this.overlay = React.createRef();
     this.addPage = React.createRef();
+    this.state = {
+      inventoryList: undefined,
+      // deleted: undefined,
+      added: undefined
+    };
   }
-  state = {
-    inventoryList: undefined,
-    deleted: undefined,
-    added: undefined
-  };
-  componentDidMount() {
-    axios
-      .get("http://localhost:8080/inventory")
-      .then(response => this.setState({ inventoryList: response.data }));
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (
-      prevState.deleted !== this.state.deleted ||
-      prevState.added !== this.state.added
-    ) {
-      axios.get("http://localhost:8080/inventory").then(response =>
-        this.setState({
-          inventoryList: response.data
-        })
-      );
-    }
-  }
-
-  removeProduct = event => {
-    event.preventDefault();
-    const id = event.target.id;
-    console.log(id);
-    const url = `http://localhost:8080/inventory/${id}`;
-    axios.delete(url).then(this.setState({ deleted: id }));
-  };
-
-  showAddPage = event => {
-    event.preventDefault();
-    // this.overlay.current.style.display = "block";
-    this.addPage.current.style.display = "block";
-  };
 
   render() {
     if (!this.state.inventoryList) return <>Loading...</>;
@@ -133,13 +139,14 @@ export default class Inventory extends Component {
       return (
         <div className="inventory">
           <h1 className="inventory__title">Inventory</h1>
-          <input className="inventory__search" placeholder="search" />
+          <input className="inventory__search" placeholder="Search" />
           <div className="inventory__table">
             <TableHeader />
             <div className="inventory__Rows">{tableRows}</div>
-            <button className="inventory__btn" onClick={this.showAddPage}>
-              +
-            </button>
+            <button
+              className="inventory__btn"
+              onClick={this.showAddPage}
+            ></button>
           </div>
           {/* <div
             className="overlay"
@@ -151,10 +158,83 @@ export default class Inventory extends Component {
             ref={this.addPage}
             style={{ display: "none" }}
           >
-            <Create />
+            <Create
+              addFunction={this.addProduct}
+              uploadCancel={this.hideAddPage}
+            />
           </div>
         </div>
       );
     }
   }
+
+  componentDidMount() {
+    axios
+      .get("http://localhost:8080/inventory")
+      .then(response => this.setState({ inventoryList: response.data }));
+  }
+
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (
+  //     !prevState.inventoryList ||
+  //     prevState.inventoryList.length !== this.state.inventoryList.length
+  //   ) {
+  //     axios.get("http://localhost:8080/inventory").then(response =>
+  //       this.setState({
+  //         inventoryList: response.data
+  //       })
+  //     );
+  //   }
+  // }
+
+  removeProduct = event => {
+    // event.preventDefault();
+    const id = event.target.id;
+    const url = `http://localhost:8080/inventory/${id}`;
+    axios.delete(url).then(
+      response => {
+        this.setState({ inventoryList: response.data });
+      }
+      // this.setState(
+      //   () => {
+      //     // console.log("inside setState", this.state, id);
+      //     return { deleted: id };
+      //   }
+      //   // , console.log(this, this.state, this.state.deleted, id)
+      // )
+    );
+  };
+
+  addProduct = submit => {
+    submit.preventDefault();
+    const newProduct = {
+      name: submit.target.product.value,
+      date: submit.target.date.value,
+      city: submit.target.city.value,
+      country: submit.target.country.value,
+      quantity: submit.target.quantity.value,
+      status: submit.target.status.value,
+      customer: "user",
+      description: submit.target.description.value,
+      warehouse: submit.target.warehouse.value
+    };
+    axios.post("http://localhost:8080/inventory", newProduct).then(response => {
+      console.log(response.data);
+      this.setState({
+        inventoryList: [...this.state.inventoryList, response.data]
+      });
+    });
+    submit.target.reset();
+    this.addPage.current.style.display = "none";
+  };
+
+  showAddPage = event => {
+    event.preventDefault();
+    this.addPage.current.style.display = "block";
+  };
+
+  hideAddPage = event => {
+    event.preventDefault();
+    this.addPage.current.style.display = "none";
+  };
 }
