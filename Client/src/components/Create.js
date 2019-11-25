@@ -38,19 +38,19 @@ export default class Create extends Component {
   };
   render() {
     return (
-      <form onSubmit={submit => this.uploadSubmit(submit)}>
+      <form className="create" onSubmit={submit => this.uploadSubmit(submit)}>
         <h1 className="create-title">Create New</h1>
-
-        {/* Last Product name input */}
-        <div className="create__container">
-          <h4 className="create__container-title silver">PRODUCT</h4>
-          <input
-            required
-            name="name"
-            className="create__container-input"
-            placeholder="Item Name"
-          ></input>
-        </div>
+        <div className="create-flex">
+          {/* Last Product name input */}
+          <div className="create__container">
+            <h4 className="create__container-title silver">PRODUCT</h4>
+            <input
+              required
+              name="name"
+              className="create__container-input"
+              placeholder="Item Name"
+            ></input>
+          </div>
 
           {/* Last Ordered input */}
           <div className="create__container">
@@ -64,15 +64,19 @@ export default class Create extends Component {
           </div>
         </div>
 
-        {/* Warehouse input */}
-        <div className="create__container">
-          <h4 className="create__container-title silver">WAREHOUSE</h4>
-          <select name="warehouse" required name="warehouse" className="create__container-input">
-            <option value="0"></option>
-            <option value="0">Warehouse 1</option>
-          </select>
-        </div>
-
+        <div className="create-flex">
+          {/* Warehouse input */}
+          <div className="create__container">
+            <h4 className="create__container-title silver">WAREHOUSE</h4>
+            <select
+              name="warehouse"
+              required
+              className="create__container-input"
+            >
+              <option value="0"></option>
+              <option value="0">Warehouse 1</option>
+            </select>
+          </div>
           {/* City input */}
           <div className="create__container">
             <h4 className="create__container-title silver">CITY</h4>
@@ -108,8 +112,7 @@ export default class Create extends Component {
             ></input>
           </div>
         </div>
-
-        <div className="create__container switch">
+        <div className="create__container__switch">
           <h4 className="create__container-title silver">STATUS</h4>
           <div className="create__container-flex" id="instock-flex">
             <label id="label-black">In Stock</label>
@@ -138,17 +141,17 @@ export default class Create extends Component {
           <h4 className="create__container-title silver">ITEM DESCRIPTION</h4>
           <input
             name="description"
-            className="create__container-input optional"
+            className="create__container-input create__container-input-optional"
             id="optional"
             placeholder="(Optional)"
           ></input>
         </div>
-        <div className="create__container">
-          <button className="create__container-save">SAVE</button>
+        <div className="create__button">
+          <button className="create__button-save">SAVE</button>
           <button
             onClick={this.props.uploadCancel}
             type="button"
-            className="create__container-cancel"
+            className="create__button-cancel"
           >
             CANCEL
           </button>

@@ -1,0 +1,22 @@
+@include small {
+  .header {
+    background: $black;
+    margin: 16px 5% 0 5%;
+
+    &-logo {
+    }
+    &__link {
+      width: 100%;
+
+      &-inventory {
+        width: 50%;
+        color: white;
+      }
+
+      &-locations {
+        width: 50%;
+        color: white;
+      }
+    }
+  }
+}
