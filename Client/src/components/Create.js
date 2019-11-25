@@ -11,33 +11,34 @@ export default class Create extends Component {
 
   handleChange(checked) {
     this.setState({ checked });
-    console.log(checked)
+    console.log(checked);
+    console.log(this.state.checked);
   }
 
   // Instock(submit) {
-  //   if (submit === { checked: false }) {
-  //     console.log(submit)
-  //     return "Instock";
+  //   if (submit === true) {
+  //     return "In-Stock";
   //   } else {
-  //     return "Not in Stock";
+  //     return "Out Of Stock";
   //   }
   // }
 
   uploadSubmit = submit => {
     axios.post("http://localhost:8080/inventory", {
-      product: submit.target.product.value,
+      name: submit.target.name.value,
+      description: submit.target.description.value,
       date: submit.target.date.value,
-      city: submit.target.city.value,
-      country: submit.target.country.value,
       quantity: submit.target.quantity.value,
-      status: this.Instock(this.state),
-      description: submit.target.description.value
+      status: this.state.checked === false ? "Out Of Stock" : "In Stock",
+      warehouse: submit.target.warehouse.value,
+      city: submit.target.city.value,
+      country: submit.target.country.value
     });
     submit.target.reset();
   };
   render() {
     return (
-      <form onSubmit={this.uploadSubmit} className="create">
+      <form onSubmit={submit => this.uploadSubmit(submit)}>
         <h1 className="create-title">Create New</h1>
 
         {/* Last Product name input */}
@@ -45,7 +46,7 @@ export default class Create extends Component {
           <h4 className="create__container-title silver">PRODUCT</h4>
           <input
             required
-            name="product"
+            name="name"
             className="create__container-input"
             placeholder="Item Name"
           ></input>
@@ -65,7 +66,7 @@ export default class Create extends Component {
         {/* Warehouse input */}
         <div className="create__container">
           <h4 className="create__container-title silver">WAREHOUSE</h4>
-          <select required name="warehouse" className="create__container-input">
+          <select name="warehouse" required name="warehouse" className="create__container-input">
             <option value="0"></option>
             <option value="0">Warehouse 1</option>
           </select>
