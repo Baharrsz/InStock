@@ -507,6 +507,12 @@ label {
   .create__container__switch {
     width: 220px;
   }
+  .create__container__switch {
+    width: 220px;
+  }
+  .create__container-switch {
+    height: 30px;
+  }
   .create__container-input {
     width: 220px;
     height: 48px;

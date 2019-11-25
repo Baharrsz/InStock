@@ -89,6 +89,11 @@
   &__right {
     margin-right: 5vw;
     margin-top: 20px;
+    border: none;
+    background: none;
+    &:focus {
+      outline: none;
+    }
   }
 }
 
