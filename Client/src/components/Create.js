@@ -122,7 +122,7 @@ export default class Create extends Component {
                   name="status"
                   checked={this.state.checked}
                   onChange={this.handleChange}
-                  onColor="#86d3ff"
+                  onColor="#32cd32"
                   onHandleColor="#ffffff"
                   handleDiameter={30}
                   uncheckedIcon={false}
