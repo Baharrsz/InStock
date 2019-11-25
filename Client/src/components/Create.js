@@ -3,34 +3,54 @@ import axios from "axios";
 import Switch from "react-switch";
 
 export default class Create extends Component {
+  constructor() {
+    super();
+    this.state = { checked: false };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(checked) {
+    this.setState({ checked });
+    console.log(checked);
+    console.log(this.state.checked);
+  }
+
+  // Instock(submit) {
+  //   if (submit === true) {
+  //     return "In-Stock";
+  //   } else {
+  //     return "Out Of Stock";
+  //   }
+  // }
+
   uploadSubmit = submit => {
     axios.post("http://localhost:8080/inventory", {
-      product: submit.target.product.value,
+      name: submit.target.name.value,
+      description: submit.target.description.value,
       date: submit.target.date.value,
-      city: submit.target.city.value,
-      country: submit.target.country.value,
       quantity: submit.target.quantity.value,
-      status: submit.target.status.value,
-      description: submit.target.description.value
+      status: this.state.checked === false ? "Out Of Stock" : "In Stock",
+      warehouse: submit.target.warehouse.value,
+      city: submit.target.city.value,
+      country: submit.target.country.value
     });
     submit.target.reset();
   };
   render() {
     return (
-      <form onSubmit={this.uploadSubmit} className="create">
+      <form onSubmit={submit => this.uploadSubmit(submit)}>
         <h1 className="create-title">Create New</h1>
 
-        <div className="create-flex">
-          {/* Last Product name input */}
-          <div className="create__container">
-            <h4 className="create__container-title silver">PRODUCT</h4>
-            <input
-              required
-              name="product"
-              className="create__container-input"
-              placeholder="Item Name"
-            ></input>
-          </div>
+        {/* Last Product name input */}
+        <div className="create__container">
+          <h4 className="create__container-title silver">PRODUCT</h4>
+          <input
+            required
+            name="name"
+            className="create__container-input"
+            placeholder="Item Name"
+          ></input>
+        </div>
 
           {/* Last Ordered input */}
           <div className="create__container">
@@ -44,19 +64,14 @@ export default class Create extends Component {
           </div>
         </div>
 
-        <div className="create-flex">
-          {/* Warehouse input */}
-          <div className="create__container">
-            <h4 className="create__container-title silver">WAREHOUSE</h4>
-            <select
-              required
-              name="warehouse"
-              className="create__container-input"
-            >
-              <option value="0"></option>
-              <option value="0">Warehouse 1</option>
-            </select>
-          </div>
+        {/* Warehouse input */}
+        <div className="create__container">
+          <h4 className="create__container-title silver">WAREHOUSE</h4>
+          <select name="warehouse" required name="warehouse" className="create__container-input">
+            <option value="0"></option>
+            <option value="0">Warehouse 1</option>
+          </select>
+        </div>
 
           {/* City input */}
           <div className="create__container">
