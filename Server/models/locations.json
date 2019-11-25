@@ -1,1 +1,49 @@
-[{"warehouse":"Warehouse Number 1","address":"469 King St W","city":"Toronto, ON","country":"Canada","contact":"Mara Weinberg","role":"Warehouse Manager","phone":"+1 416 678 2345","email":"weinberg@instack.com","categories":["Industrial","Automotive","Heavy","Mechanical","Engineering"]},{"warehouse":"","address":"","city":"","country":"Canada","contact":"","role":"","phone":"","email":"","categories":[""]}]
+[
+    {
+        "warehouse": "Warehouse Number 1",
+        "address": "469 King St W",
+        "city": "Toronto, ON",
+        "country": "Canada",
+        "contact": "Mara Weinberg",
+        "role": "Warehouse Manager",
+        "phone": "+1 416 678 2345",
+        "email": "weinberg@instack.com",
+        "categories": [
+            "Industrial",
+            "Automotive",
+            "Heavy",
+            "Mechanical",
+            "Engineering"
+        ]
+    },
+    {
+        "warehouse": "",
+        "address": "",
+        "city": "",
+        "country": "Canada",
+        "contact": "",
+        "role": "",
+        "phone": "",
+        "email": "",
+        "categories": [
+            ""
+        ]
+    },
+    {
+        "warehouse": "Yuchen Lin",
+        "address": "202 meadows blvd",
+        "city": "location",
+        "country": "Canada",
+        "contact": "contact",
+        "role": "position",
+        "phone": "3064912795",
+        "email": "kloselyc@gmail.com",
+        "categories": [
+            "Industry",
+            "automotive",
+            "heavy",
+            "mech",
+            "engineering"
+        ]
+    }
+]

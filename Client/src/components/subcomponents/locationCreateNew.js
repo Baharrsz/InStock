@@ -136,26 +136,27 @@ export default class locationCreateNew extends Component {
                 ITEM DESCRIPTION
               </div>
               <input
-                className="location__createNew-form--item--input"
+                className="location__createNew-form--item--input description__input"
                 name="description"
                 placeholder="Use commas to separate each category"
               ></input>
             </div>
           </div>
+          <div className="tabdesk__button">
+            <input
+              type="submit"
+              className="location__createNew-form--submit"
+              value="SAVE"
+            />
 
-          <input
-            type="submit"
-            className="location__createNew-form--submit"
-            value="SAVE"
-          />
-
-          <button
-            type="button"
-            className="location__createNew-form--cancel"
-            onClick={this.clickHandler}
-          >
-            CANCEL
-          </button>
+            <button
+              type="button"
+              className="location__createNew-form--cancel"
+              onClick={this.clickHandler}
+            >
+              CANCEL
+            </button>
+          </div>
         </form>
       </div>
     );

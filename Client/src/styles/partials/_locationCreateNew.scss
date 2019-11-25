@@ -6,7 +6,7 @@
   right: 0;
   bottom: 0;
   width: 100vw;
-  height: 900px;
+  height: 3000px;
   background-color: rgba(0, 0, 0, 0.7);
 
   &-form {
@@ -16,7 +16,7 @@
     right: 0;
     bottom: 0;
     width: 100vw;
-    height: 900px;
+    height: 3000px;
 
     display: flex;
     flex-direction: column;
@@ -58,6 +58,10 @@
       line-height: 22px;
       height: 40px;
       border-radius: 4px;
+      margin-left: 5vw;
+      &:focus {
+        outline: none;
+      }
     }
 
     &--cancel {
@@ -68,19 +72,29 @@
       font-size: 14px;
       line-height: 22px;
       height: 40px;
+      margin-left: 5vw;
+      background: none;
+      border: none;
+      &:focus {
+        outline: none;
+      }
     }
   }
+}
+
+.fas {
+  width: 30px;
 }
 
 @include medium {
   .location__createNew {
     &-form {
       width: 70vw;
-      height: 80vh;
+      height: 70vh;
       margin: 20vh 15vw;
 
       &--title {
-        width: 50vw;
+        width: 60vw;
       }
 
       &--item {
@@ -93,7 +107,28 @@
           width: 100%;
         }
       }
+
+      &--submit {
+        width: 15vw;
+        // margin-left: 5vw;
+      }
+
+      &--cancel {
+        width: 15vw;
+        // margin-left: 5vw;
+      }
     }
+  }
+
+  .tabdesk__button {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 42vw;
+    // justify-content: flex-start;
+  }
+
+  .description__input {
+    height: 100px;
   }
 
   .tabdesk__wrapper {
@@ -110,5 +145,34 @@
 
   .tabdesk__description {
     width: 72%;
+  }
+}
+
+@include huge {
+  .location__createNew {
+    &-form {
+      width: 60vw;
+      margin: 20vh 18vw;
+
+      &--title {
+        width: 32vw;
+      }
+
+      &--item {
+        width: 11vw;
+      }
+    }
+  }
+
+  .tabdesk__description {
+    width: 77%;
+  }
+
+  .tabdesk__wrapper {
+    width: 70%;
+  }
+
+  .tabdesk__button {
+    width: 33vw;
   }
 }

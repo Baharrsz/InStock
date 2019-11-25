@@ -18,11 +18,11 @@ export default class Locations extends Component {
               alt="location search icon"
               src={Search}
             ></img>
-            <textarea
+            <input
               className="location__search--input"
               name="search"
               placeholder="Search"
-            ></textarea>
+            ></input>
           </div>
         </div>
 

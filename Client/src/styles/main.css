@@ -274,6 +274,15 @@ label {
   top: 0;
 }
 
+.location__add {
+  background: none;
+  border: none;
+}
+
+.location__add:focus {
+  outline: none;
+}
+
 .location__add::after {
   content: "";
   clear: both;
@@ -357,7 +366,7 @@ label {
   }
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1440px) {
   .location {
     margin: 0 12.5vw;
   }
@@ -605,7 +614,7 @@ label {
   }
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1440px) {
   .warehouse__title {
     margin-left: 12.5vw;
     margin-right: 12.5vw;
@@ -893,7 +902,7 @@ label {
   }
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1440px) {
   .productDetail__left {
     width: 75%;
     margin-left: 12.5vw;
@@ -914,7 +923,7 @@ label {
   right: 0;
   bottom: 0;
   width: 100vw;
-  height: 900px;
+  height: 3000px;
   background-color: rgba(0, 0, 0, 0.7);
 }
 
@@ -925,7 +934,7 @@ label {
   right: 0;
   bottom: 0;
   width: 100vw;
-  height: 900px;
+  height: 3000px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -974,6 +983,11 @@ label {
   line-height: 22px;
   height: 40px;
   border-radius: 4px;
+  margin-left: 5vw;
+}
+
+.location__createNew-form--submit:focus {
+  outline: none;
 }
 
 .location__createNew-form--cancel {
@@ -983,16 +997,27 @@ label {
   font-size: 14px;
   line-height: 22px;
   height: 40px;
+  margin-left: 5vw;
+  background: none;
+  border: none;
+}
+
+.location__createNew-form--cancel:focus {
+  outline: none;
+}
+
+.fas {
+  width: 30px;
 }
 
 @media only screen and (min-width: 768px) {
   .location__createNew-form {
     width: 70vw;
-    height: 80vh;
+    height: 70vh;
     margin: 20vh 15vw;
   }
   .location__createNew-form--title {
-    width: 50vw;
+    width: 60vw;
   }
   .location__createNew-form--item {
     width: 20vw;
@@ -1002,6 +1027,25 @@ label {
   }
   .location__createNew-form--item--input {
     width: 100%;
+  }
+  .location__createNew-form--submit {
+    width: 15vw;
+  }
+  .location__createNew-form--cancel {
+    width: 15vw;
+  }
+  .tabdesk__button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    width: 42vw;
+  }
+  .description__input {
+    height: 100px;
   }
   .tabdesk__wrapper {
     display: -webkit-box;
@@ -1027,6 +1071,28 @@ label {
   }
   .tabdesk__description {
     width: 72%;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .location__createNew-form {
+    width: 60vw;
+    margin: 20vh 18vw;
+  }
+  .location__createNew-form--title {
+    width: 32vw;
+  }
+  .location__createNew-form--item {
+    width: 11vw;
+  }
+  .tabdesk__description {
+    width: 77%;
+  }
+  .tabdesk__wrapper {
+    width: 70%;
+  }
+  .tabdesk__button {
+    width: 33vw;
   }
 }
 
