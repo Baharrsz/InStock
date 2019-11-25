@@ -68,10 +68,7 @@ class TableRow extends Component {
           <p className="inventory__table-row-cell inventory__table-cell--quantity">
             {product.quantity}
           </p>
-          <label className="inventory__table-header-cell--mobile">
-            {" "}
-            STATUS
-          </label>
+          <label className="inventory__table-header-cell--mobile">STATUS</label>
           <p className="inventory__table-row-cell inventory__table-cell--status">
             {product.status}
           </p>
@@ -79,7 +76,6 @@ class TableRow extends Component {
 
         {/* Row's kebab icon and hidden button */}
         <div className="inventory__table-row-cells--hidden">
-          {" "}
           <img
             className="inventory__table-row-kebab"
             src={kebabIcon}
@@ -115,12 +111,9 @@ class TableRow extends Component {
 export default class Inventory extends Component {
   constructor(props) {
     super(props);
-    // this.overlay = React.createRef();
     this.addPage = React.createRef();
     this.state = {
-      inventoryList: undefined,
-      // deleted: undefined,
-      added: undefined
+      inventoryList: undefined
     };
   }
 
@@ -148,11 +141,7 @@ export default class Inventory extends Component {
               onClick={this.showAddPage}
             ></button>
           </div>
-          {/* <div
-            className="overlay"
-            ref={this.overlay}
-            style={{ display: "none" }}
-          ></div> */}
+
           <div
             className="addPage"
             ref={this.addPage}
@@ -174,35 +163,13 @@ export default class Inventory extends Component {
       .then(response => this.setState({ inventoryList: response.data }));
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (
-  //     !prevState.inventoryList ||
-  //     prevState.inventoryList.length !== this.state.inventoryList.length
-  //   ) {
-  //     axios.get("http://localhost:8080/inventory").then(response =>
-  //       this.setState({
-  //         inventoryList: response.data
-  //       })
-  //     );
-  //   }
-  // }
-
   removeProduct = event => {
     // event.preventDefault();
     const id = event.target.id;
     const url = `http://localhost:8080/inventory/${id}`;
-    axios.delete(url).then(
-      response => {
-        this.setState({ inventoryList: response.data });
-      }
-      // this.setState(
-      //   () => {
-      //     // console.log("inside setState", this.state, id);
-      //     return { deleted: id };
-      //   }
-      //   // , console.log(this, this.state, this.state.deleted, id)
-      // )
-    );
+    axios.delete(url).then(response => {
+      this.setState({ inventoryList: response.data });
+    });
   };
 
   addProduct = submit => {
@@ -214,7 +181,7 @@ export default class Inventory extends Component {
       country: submit.target.country.value,
       quantity: submit.target.quantity.value,
       status: submit.target.status.value,
-      customer: "user",
+      customer: submit.target.customer.value,
       description: submit.target.description.value,
       warehouse: submit.target.warehouse.value
     };
