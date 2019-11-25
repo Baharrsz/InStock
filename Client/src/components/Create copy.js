@@ -12,34 +12,25 @@ export default class Create extends Component {
   handleChange(checked) {
     this.setState({ checked });
     console.log(checked);
+    console.log(this.state.checked);
   }
-
-  // Instock(submit) {
-  //   if (submit === true) {
-  //     return "In-Stock";
-  //   } else {
-  //     return "Out Of Stock";
-  //   }
-  // }
 
   uploadSubmit = submit => {
     axios.post("http://localhost:8080/inventory", {
-      name: submit.target.name.value,
-      description: submit.target.description.value,
+      product: submit.target.product.value,
       date: submit.target.date.value,
+      city: submit.target.city.value,
+      country: submit.target.country.value,
       quantity: submit.target.quantity.value,
       status: this.state.checked === false ? "Out Of Stock" : "In Stock",
-      warehouse: submit.target.warehouse.value,
-      city: submit.target.city.value,
-      country: submit.target.country.value
+      description: submit.target.description.value
     });
     submit.target.reset();
   };
   render() {
     return (
-
       <div className="create-background">
-        <form onSubmit={submit => this.uploadSubmit(submit)} className="create">
+        <form className="create" onSubmit={this.props.addFunction}>
           <h1 className="create-title">Create New</h1>
           <div className="create-flex">
             {/* Last Product name input */}
@@ -102,7 +93,6 @@ export default class Create extends Component {
               ></input>
             </div>
 
-
             {/* Quantity input */}
             <div className="create__container">
               <h4 className="create__container-title silver">QUANTITY</h4>
@@ -134,8 +124,6 @@ export default class Create extends Component {
                   width={48}
                   className="react-switch"
                   id="material-switch"
-                value={this.state.checked ? "In Stock" : "Out of Stock"}
-
                 />
               </label>
             </div>
@@ -152,11 +140,7 @@ export default class Create extends Component {
           </div>
           <div className="create__button">
             <button className="create__button-save">SAVE</button>
-            <button
-              onClick={this.props.uploadCancel}
-              type="button"
-              className="create__button-cancel"
-            >
+            <button type="button" className="create__button-cancel">
               CANCEL
             </button>
           </div>
