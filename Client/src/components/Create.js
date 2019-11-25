@@ -12,26 +12,27 @@ export default class Create extends Component {
   handleChange(checked) {
     this.setState({ checked });
     console.log(checked);
+    console.log(this.state.checked);
   }
 
   // Instock(submit) {
-  //   if (submit === { checked: false }) {
-  //     console.log(submit)
-  //     return "Instock";
+  //   if (submit === true) {
+  //     return "In-Stock";
   //   } else {
-  //     return "Not in Stock";
+  //     return "Out Of Stock";
   //   }
   // }
 
   uploadSubmit = submit => {
     axios.post("http://localhost:8080/inventory", {
-      product: submit.target.product.value,
+      name: submit.target.name.value,
+      description: submit.target.description.value,
       date: submit.target.date.value,
-      city: submit.target.city.value,
-      country: submit.target.country.value,
       quantity: submit.target.quantity.value,
-      status: this.Instock(this.state),
-      description: submit.target.description.value
+      status: this.state.checked === false ? "Out Of Stock" : "In Stock",
+      warehouse: submit.target.warehouse.value,
+      city: submit.target.city.value,
+      country: submit.target.country.value
     });
     submit.target.reset();
   };
@@ -45,7 +46,7 @@ export default class Create extends Component {
           <h4 className="create__container-title silver">PRODUCT</h4>
           <input
             required
-            name="product"
+            name="name"
             className="create__container-input"
             placeholder="Item Name"
           ></input>
@@ -65,7 +66,12 @@ export default class Create extends Component {
         {/* Warehouse input */}
         <div className="create__container">
           <h4 className="create__container-title silver">WAREHOUSE</h4>
-          <select required name="warehouse" className="create__container-input">
+          <select
+            name="warehouse"
+            required
+            name="warehouse"
+            className="create__container-input"
+          >
             <option value="0"></option>
             <option value="Warehouse 1">Warehouse 1</option>
           </select>
@@ -82,44 +88,46 @@ export default class Create extends Component {
           ></input>
         </div>
 
-        {/* Country input */}
-        <div className="create__container">
-          <h4 className="create__container-title silver">COUNTRY</h4>
-          <input
-            required
-            name="country"
-            className="create__container-input"
-            placeholder="Canada"
-          ></input>
+        <div className="create-flex">
+          {/* Country input */}
+          <div className="create__container">
+            <h4 className="create__container-title silver">COUNTRY</h4>
+            <input
+              required
+              name="country"
+              className="create__container-input"
+              placeholder="Canada"
+            ></input>
+          </div>
+
+          {/* Quantity input */}
+          <div className="create__container">
+            <h4 className="create__container-title silver">QUANTITY</h4>
+            <input
+              required
+              name="quantity"
+              className="create__container-input"
+              placeholder="0"
+            ></input>
+          </div>
         </div>
 
-        {/* Quantity input */}
-        <div className="create__container">
-          <h4 className="create__container-title silver">QUANTITY</h4>
-          <input
-            required
-            name="quantity"
-            className="create__container-input"
-            placeholder="0"
-          ></input>
-        </div>
-
-        <div className="create__container">
+        <div className="create__container switch">
           <h4 className="create__container-title silver">STATUS</h4>
-          <div className="create__container-flex">
+          <div className="create__container-flex" id="instock-flex">
             <label id="label-black">In Stock</label>
             <label className="create__container-switch">
               <Switch
                 name="status"
-                checked={this.state.checked}
-                onChange={this.handleChange}
+                // checked={this.state.checked}
+                // onChange={this.handleChange}
                 onColor="#86d3ff"
-                onHandleColor="#2693e6"
+                onHandleColor="#ffffff"
                 handleDiameter={30}
                 uncheckedIcon={false}
                 checkedIcon={false}
                 boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
-                activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
+                activeBoxShadow="rgba(0, 0, 0, 0.2)"
                 height={20}
                 width={48}
                 className="react-switch"
@@ -135,7 +143,7 @@ export default class Create extends Component {
           <h4 className="create__container-title silver">ITEM DESCRIPTION</h4>
           <input
             name="description"
-            className="create__container-input"
+            className="create__container-input optional"
             id="optional"
             placeholder="(Optional)"
           ></input>
