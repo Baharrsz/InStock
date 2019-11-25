@@ -12,7 +12,10 @@ export default class Create extends Component {
   handleChange(checked) {
     this.setState({ checked });
     console.log(checked);
+<<<<<<< HEAD
     console.log(this.state.checked);
+=======
+>>>>>>> af79b861d3abedb3f32a2b626a426ebc8535d70a
   }
 
   // Instock(submit) {
@@ -133,6 +136,8 @@ export default class Create extends Component {
                   width={48}
                   className="react-switch"
                   id="material-switch"
+                value={this.state.checked ? "In Stock" : "Out of Stock"}
+
                 />
               </label>
             </div>
