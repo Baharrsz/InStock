@@ -4,7 +4,7 @@ html * {
 }
 
 html,
-body  {
+body {
   box-sizing: border-box;
   font-family: "AvenirNextRegular";
 }
@@ -22,6 +22,6 @@ body  {
 @import "./partials/create";
 @import "./partials/inventory";
 // @import "./partials/inventoryDetails";
-@import "./partials/warehouseInfo";
-@import "./partials/productDetail";
+// @import "./partials/warehouseInfo";
+// @import "./partials/productDetail";
 // @import "./partials/hiddenComponents.scss";
