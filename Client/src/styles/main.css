@@ -1,7 +1,6 @@
 html * {
   margin: unset;
   padding: unset;
-  font-family: "AvenirNextRegular";
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -272,7 +271,8 @@ label {
   border-radius: 50%;
   float: right;
   position: relative;
-  top: 0;
+  top: -75px;
+  right: -85vw;
 }
 
 .location__add {
@@ -603,9 +603,12 @@ label {
 }
 
 * {
-  font-family: "AvenirRegular";
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+.inventory {
+  font-family: "AvenirRegular";
 }
 
 .inventory__title {
