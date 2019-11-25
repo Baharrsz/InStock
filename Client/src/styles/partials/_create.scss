@@ -114,10 +114,11 @@
     &__container {
       &-title {
       }
-      &-switch {
-        display: flex;
-        justify-content: space-between;
+      &__switch {
         width: 220px;
+      }
+      &-switch {
+        height: 30px;
       }
       &-input {
         width: 220px;
