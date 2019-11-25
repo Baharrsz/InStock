@@ -726,7 +726,7 @@ label {
         grid-template-columns: 3.125vw auto auto 3.125vw;
     -ms-grid-rows: auto auto;
         grid-template-rows: auto auto;
-        grid-template-areas: ". title search ." ". table table .";
+        grid-template-areas: ". title search ." ". table table .";
   }
   .inventory__btn {
     right: 13vw;
