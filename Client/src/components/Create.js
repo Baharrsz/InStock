@@ -12,7 +12,6 @@ export default class Create extends Component {
   handleChange(checked) {
     this.setState({ checked });
     console.log(checked);
-    console.log(this.state.checked);
   }
 
   // Instock(submit) {
@@ -38,6 +37,7 @@ export default class Create extends Component {
   };
   render() {
     return (
+
       <div className="create-background">
         <form onSubmit={submit => this.uploadSubmit(submit)} className="create">
           <h1 className="create-title">Create New</h1>
@@ -102,6 +102,7 @@ export default class Create extends Component {
               ></input>
             </div>
 
+
             {/* Quantity input */}
             <div className="create__container">
               <h4 className="create__container-title silver">QUANTITY</h4>
@@ -133,6 +134,8 @@ export default class Create extends Component {
                   width={48}
                   className="react-switch"
                   id="material-switch"
+                value={this.state.checked ? "In Stock" : "Out of Stock"}
+
                 />
               </label>
             </div>
