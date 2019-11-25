@@ -3,8 +3,8 @@ import axios from "axios";
 import Switch from "react-switch";
 
 export default class Create extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = { checked: false };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -12,6 +12,7 @@ export default class Create extends Component {
   handleChange(checked) {
     this.setState({ checked });
     console.log(checked);
+    console.log(this.state.checked);
   }
 
   // Instock(submit) {
@@ -37,9 +38,8 @@ export default class Create extends Component {
   };
   render() {
     return (
-
       <div className="create-background">
-        <form onSubmit={submit => this.uploadSubmit(submit)} className="create">
+        <form onSubmit={this.props.addFunction} className="create">
           <h1 className="create-title">Create New</h1>
           <div className="create-flex">
             {/* Last Product name input */}
@@ -102,7 +102,6 @@ export default class Create extends Component {
               ></input>
             </div>
 
-
             {/* Quantity input */}
             <div className="create__container">
               <h4 className="create__container-title silver">QUANTITY</h4>
@@ -123,7 +122,7 @@ export default class Create extends Component {
                   name="status"
                   checked={this.state.checked}
                   onChange={this.handleChange}
-                  onColor="#32cd32"
+                  onColor="#86d3ff"
                   onHandleColor="#ffffff"
                   handleDiameter={30}
                   uncheckedIcon={false}
@@ -134,8 +133,7 @@ export default class Create extends Component {
                   width={48}
                   className="react-switch"
                   id="material-switch"
-                value={this.state.checked ? "In Stock" : "Out of Stock"}
-
+                  value={this.state.checked ? "In Stock" : "Out of Stock"}
                 />
               </label>
             </div>
