@@ -102,13 +102,13 @@
   background-color: #002f5f;
   width: 60px;
   height: 60px;
-  padding: 20%;
+  padding: 0.8%;
   border-radius: 50%;
-  float: right;
-  position: relative;
+  // float: right;
+  position: fixed;
   // use this to control position
-  top: -75px;
-  right: -85vw;
+  bottom: 15vh;
+  right: 8vw;
 }
 .location__add {
   background: none;
