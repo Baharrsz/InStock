@@ -109,6 +109,17 @@ export default class InventoryDetails extends Component {
                 disabled={disabled}
               />
             </div>
+
+            <div className="product__warehouse">
+              <label className="product__warehouse-lable">WAREHOUSE</label>
+              <input
+                className="product__warehouse-text"
+                name="warehouse"
+                defaultValue={product.warehouse}
+                disabled={disabled}
+              />
+            </div>
+
             <div className="product__loacation">
               <label className="product__loacation-lable">LOCATION</label>
               <input
@@ -133,8 +144,8 @@ export default class InventoryDetails extends Component {
               <Switch
                 onChange={this.statusSwitch}
                 checked={this.state.checked}
-                onColor="#86d3ff"
-                onHandleColor="#2693e6"
+                onColor="#32cd32"
+                onHandleColor="#ffffff"
                 handleDiameter={30}
                 uncheckedIcon={false}
                 checkedIcon={false}

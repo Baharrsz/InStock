@@ -9,33 +9,6 @@ export default class Create extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(checked) {
-    this.setState({ checked });
-    console.log(checked);
-    console.log(this.state.checked);
-  }
-
-  // Instock(submit) {
-  //   if (submit === true) {
-  //     return "In-Stock";
-  //   } else {
-  //     return "Out Of Stock";
-  //   }
-  // }
-
-  uploadSubmit = submit => {
-    axios.post("http://localhost:8080/inventory", {
-      name: submit.target.name.value,
-      description: submit.target.description.value,
-      date: submit.target.date.value,
-      quantity: submit.target.quantity.value,
-      status: this.state.checked === false ? "Out Of Stock" : "In Stock",
-      warehouse: submit.target.warehouse.value,
-      city: submit.target.city.value,
-      country: submit.target.country.value
-    });
-    submit.target.reset();
-  };
   render() {
     return (
       <div className="create-background">
@@ -161,5 +134,10 @@ export default class Create extends Component {
         </form>
       </div>
     );
+  }
+  handleChange(checked) {
+    this.setState({ checked });
+    console.log(checked);
+    console.log(this.state.checked);
   }
 }
