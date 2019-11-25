@@ -98,6 +98,32 @@
   text-decoration: none;
 }
 
+.location__add-icon {
+  background-color: #002f5f;
+  width: 60px;
+  height: 60px;
+  padding: 20%;
+  border-radius: 50%;
+  float: right;
+  position: relative;
+  // use this to control position
+  top: -75px;
+  right: -85vw;
+}
+.location__add {
+  background: none;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+.location__add::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
 @include medium {
   .location {
     margin: 0 3.125vw;
@@ -153,7 +179,7 @@
   }
 }
 
-@include large {
+@include huge {
   .location {
     margin: 0 12.5vw;
 
