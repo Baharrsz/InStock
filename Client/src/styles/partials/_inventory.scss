@@ -1,5 +1,4 @@
 * {
-  margin: 0;
   font-family: "AvenirRegular";
   box-sizing: border-box;
 }
@@ -91,10 +90,6 @@
 
 @include medium {
   .inventory {
-    * {
-      margin: 0;
-    }
-
     display: grid;
     grid-template-columns: 3.125vw auto auto 3.125vw;
     grid-template-rows: auto auto;
