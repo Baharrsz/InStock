@@ -38,7 +38,7 @@ export default class Create extends Component {
   };
   render() {
     return (
-      <form className="create" onSubmit={submit => this.uploadSubmit(submit)}>
+      <form className="create" onSubmit={this.props.addFunction}>
         <h1 className="create-title">Create New</h1>
         <div className="create-flex">
           {/* Last Product name input */}
