@@ -685,9 +685,11 @@ label {
   position: absolute;
   top: 48px;
   right: 0;
+  width: 161px;
+  height: 44px;
   border: 1px solid #e1e1e1;
-  padding: 10px;
   background-color: #fff;
+  padding: 10px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -731,11 +733,6 @@ label {
   .inventory__table-header-cell--mobile {
     display: none;
   }
-  .inventory__table-row-cell {
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
-  }
   .inventory__table-row, .inventory__table-row-cells--regular {
     display: -ms-grid;
     display: grid;
@@ -743,10 +740,29 @@ label {
         grid-template-columns: 29.17vw 13.02vw 13.02vw 9.9vw 13.02vw;
     -webkit-column-gap: 3.125vw;
             column-gap: 3.125vw;
+    padding: 0;
+  }
+  .inventory__table-row *, .inventory__table-row-cells--regular * {
+    margin: 0;
+    padding: 0;
   }
   .inventory__table-row-cells--regular, .inventory__table-row-cells--regular-cells--regular {
     -ms-grid-rows: 100px;
         grid-template-rows: 100px;
+  }
+  .inventory__table-row-cell {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .inventory__table-row-kebab {
+    top: 44px;
+    right: 16px;
+  }
+  .inventory__table-row-dropdown {
+    top: 68px;
+    right: 10px;
+    padding: 10px;
   }
 }
 
@@ -760,9 +776,21 @@ label {
     height: 80px;
     background-size: 24px;
   }
-  .inventory-row-cells--regular {
+  .inventory__table-row, .inventory__table-row-cells--regular {
+    -ms-grid-columns: 23.89vw 11.11vw 11.11vw 12.78vw 11.11vw;
+        grid-template-columns: 23.89vw 11.11vw 11.11vw 12.78vw 11.11vw;
+    -webkit-column-gap: 1.67vw;
+            column-gap: 1.67vw;
+  }
+  .inventory__table-row-cells--regular, .inventory__table-row-cells--regular-cells--regular {
     -ms-grid-rows: 80px;
         grid-template-rows: 80px;
+  }
+  .inventory__table-row-kebab, .inventory__table-row-cells--regular-kebab {
+    top: 33px;
+  }
+  .inventory__table-row-dropdown, .inventory__table-row-cells--regular-dropdown {
+    top: 37px;
   }
 }
 
