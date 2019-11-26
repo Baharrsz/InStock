@@ -30,97 +30,102 @@ export default class InventoryDetails extends Component {
     else {
       return (
         <form className="product" onSubmit={this.submitEdit}>
-          <h1 className="product__title">
+          <div className="product-header">
             <Link to="/inventory">
               <img src={arrow} alt="Back Arrow" />
             </Link>
-            {product.name}
-          </h1>
-
+            <h1 className="product__title">{product.name}</h1>
+          </div>
           <div
             className="product__status"
             style={{
               backgroundColor:
                 this.state.selectedProduct.status.toUpperCase().indexOf("OUT") <
                 0
-                  ? "#32cd32"
+                  ? "#82B72A"
                   : "#AFAFAF"
             }}
           >
             {product.status}
           </div>
-          <input
-            className="product__descriptionplus"
-            name="descriptionPlus"
-            defaultValue={product.descriptionplus}
-            disabled={disabled}
-          />
+
           <div className="product__details">
-            <div className="product__description">
-              <label className="product__description-lable">
+            <div className="product__container">
+              <label className="product__container__description-label">
                 ITEM DESCRIPTION
               </label>
-              <input
-                className="product__description-text"
-                name="description"
-                defaultValue={product.description}
+              <textarea
+                className="product__container-input-descriptionplus"
+                name="descriptionPlus"
+                defaultValue={product.descriptionplus}
                 disabled={disabled}
               />
             </div>
-            <div className="product__orderedBy">
-              <label className="product__orderedBy-lable">ORDERED BY</label>
+
+            <div className="product__container">
+              <label className="product__container__orderedBy-label">
+                ORDERED BY
+              </label>
               <input
-                className="product__orderedBy-text"
+                className="product__container-input"
                 name="customer"
                 defaultValue={product.customer}
                 disabled={disabled}
               />
             </div>
-            <div className="product__lastOrdered">
-              <label className="product__lastOrdered-lable">LAST ORDERED</label>
+            <div className="product__container">
+              <label className="product__container__lastOrdered-label">
+                LAST ORDERED
+              </label>
               <input
-                className="product__lastOrdered-text"
+                className="product__container-input"
                 name="date"
                 defaultValue={product.date}
                 disabled={disabled}
               />
             </div>
-            <div className="product__quantity">
-              <label className="product__quantity-lable">QUANTITY</label>
+            <div className="product__container">
+              <label className="product__container__quantity-label">
+                QUANTITY
+              </label>
               <input
-                className="product__quantity-text"
+                className="product__container-input"
                 name="quantity"
                 defaultValue={product.quantity}
                 disabled={disabled}
               />
             </div>
-            <div className="product__categories">
-              <label className="product__categories-lable">CATEGORIES</label>
+            <div className="product__container">
+              <label className="product__container__categories-label">
+                CATEGORIES
+              </label>
               <input
-                className="product__categories-text"
+                className="product__container-input"
                 name="categories"
                 defaultValue={product.categories}
                 disabled={disabled}
               />
             </div>
-            <div className="product__reference">
-              <label className="product__reference-lable">
+            <div className="product__container">
+              <label className="product__container__reference-label">
                 REFERENCE NUMBER
               </label>
               <input
-                className="product__reference-text"
+                className="product__container-input"
                 name="id"
                 defaultValue={product.id}
                 disabled={disabled}
               />
             </div>
 
-            <div className="product__warehouse">
-              <label className="product__warehouse-lable">WAREHOUSE</label>
+            <div className="product__container">
+              <label className="product__container__warehouse-label">
+                WAREHOUSE
+              </label>
               <select
                 name="warehouse"
                 required
-                className="product__warehouse-input"
+                className="product__container-input product__container-select"
                 onChange={this.populateWarehouse}
                 disabled={disabled}
                 defaultValue={product.warehouse}
@@ -128,80 +133,89 @@ export default class InventoryDetails extends Component {
                 {this.state.warehouseNames}
               </select>
             </div>
-
-            <div className="product__loacation">
-              <label className="product__loacation-lable">LOCATION</label>
+            <div className="product__container">
+              <label className="product__container__loacation-label">
+                LOCATION
+              </label>
               <input
-                className="product__loacation-city"
+                className="product__container-input"
                 name="city"
                 ref={this.city}
                 defaultValue={`${product.city}`}
                 disabled
               />
               <input
-                className="product__loacation-country"
+                className="product__container-input"
                 name="country"
                 ref={this.country}
                 defaultValue={`${product.country}`}
                 disabled
               />
             </div>
-            <label
-              className="product__statusSwitch"
+
+            <div
+              className="product__container"
               style={{
-                visibility: this.state.disabled ? "hidden" : "visible"
+                display: this.state.disabled ? "none" : "block"
               }}
             >
-              STATUS
-              <span>In Stock</span>
-              <Switch
-                onChange={this.statusSwitch}
-                checked={this.state.checked}
-                onColor="#32cd32"
-                onHandleColor="#ffffff"
-                handleDiameter={30}
-                uncheckedIcon={false}
-                checkedIcon={false}
-                boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
-                activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
-                height={20}
-                width={48}
-              />
-            </label>
-            <div className="product__warehouse">
-              <label className="product__warehouse-lable">WAREHOUSE NAME</label>
+              <label className="product__container-label">STATUS</label>
+              <div className="product__container-status-flex">
+                <label id="isblack">In Stock</label>
+                <Switch
+                  onChange={this.statusSwitch}
+                  checked={this.state.checked}
+                  onColor="#82B72A"
+                  onHandleColor="#ffffff"
+                  handleDiameter={30}
+                  uncheckedIcon={false}
+                  checkedIcon={false}
+                  boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
+                  activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
+                  height={20}
+                  width={48}
+                />
+              </div>
+            </div>
+
+            <div className="product__container">
+              <label className="product__container__warehouse-label">
+                WAREHOUSE NAME
+              </label>
               <input
-                className="product__warehouse-text"
+                className="product__container-input"
                 name="warehouse"
                 defaultValue={product.warehouse}
                 disabled={disabled}
               />
             </div>
+            <button
+              className="product__btn product__btn-edit"
+              type="button"
+              ref={this.editBtn}
+              onClick={this.startEdit}
+            >
+              EDIT
+            </button>
+            <div className="product__btn-flex">
+              <button
+                className="product__btn product__btn-cancel"
+                ref={this.cancelBtn}
+                type="button"
+                style={{ display: "none" }}
+                onClick={this.endEdit}
+              >
+                CANCEL
+              </button>
+              <button
+                className="product__btn product__btn-save"
+                ref={this.submitBtn}
+                style={{ display: "none" }}
+              >
+                SAVE
+              </button>
+            </div>
           </div>
-          <button
-            className="product__btn"
-            type="button"
-            ref={this.editBtn}
-            onClick={this.startEdit}
-          >
-            EDIT
-          </button>
-          <button
-            className="product__btn product__btn--cancel"
-            ref={this.cancelBtn}
-            type="button"
-            style={{ display: "none" }}
-            onClick={this.endEdit}
-          >
-            CANCEL
-          </button>
-          <button
-            className="product__btn"
-            ref={this.submitBtn}
-            style={{ display: "none" }}
-          >
-            SAVE
-          </button>
         </form>
       );
     }
@@ -248,7 +262,7 @@ export default class InventoryDetails extends Component {
     const status = this.state.checked ? "In Stock" : "Out of Stock";
     const edited = {
       name: this.state.selectedProduct.name,
-      description: submit.target.description.value,
+      // description: submit.target.description.value,
       descriptionplus: submit.target.descriptionPlus.value,
       date: submit.target.date.value,
       quantity: submit.target.quantity.value,

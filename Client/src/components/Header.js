@@ -19,7 +19,7 @@ export default class Header extends Component {
         <NavLink
           className="header__link-locations"
           activeClassName="header__link-locations-active"
-          to="locations"
+          to="/locations"
         >
           Locations
         </NavLink>
