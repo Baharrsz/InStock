@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Switch from "react-switch";
-<<<<<<< HEAD
-
-=======
->>>>>>> ed35f50df8430e9e076577555a7f72aaba2df1c1
 export default class Create extends Component {
   constructor(props) {
     super(props);
