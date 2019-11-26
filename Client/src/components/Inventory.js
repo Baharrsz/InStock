@@ -60,7 +60,7 @@ class TableRow extends Component {
             LOCATION
           </label>
           <p className="inventory__table-row-cell inventory__table-cell--location">
-            {product.city},{product.country}
+            {product.city}, {product.country}
           </p>
           <label className="inventory__table-header-cell--mobile">
             QUANTITY
