@@ -123,6 +123,7 @@ export default class InventoryDetails extends Component {
                 className="product__warehouse-input"
                 onChange={this.populateWarehouse}
                 disabled={disabled}
+                defaultValue={product.warehouse}
               >
                 {this.state.warehouseNames}
               </select>
@@ -253,13 +254,12 @@ export default class InventoryDetails extends Component {
       quantity: submit.target.quantity.value,
       status: status,
       customer: submit.target.customer.value,
-      warehouse: submit.target.warehouse.value,
+      warehouse: submit.target.warehouse[0].value,
       city: submit.target.city.value,
       country: submit.target.country.value,
       id: submit.target.id.value,
       categories: submit.target.categories.value
     };
-    console.log(edited);
     axios
       .put(
         `http://localhost:8080/inventory/${this.state.selectedProduct.id}`,
@@ -295,12 +295,15 @@ export default class InventoryDetails extends Component {
           const selected =
             warehouse.warehouse === this.state.selectedProduct.warehouse;
           return (
-            <option value={warehouse.warehouse} selected={selected}>
+            <option
+              value={warehouse.warehouse}
+              selected={selected}
+              id={warehouse}
+            >
               {warehouse.warehouse}
             </option>
           );
         });
-        console.log("options", options);
         this.setState({ warehouseNames: options });
       });
     });
