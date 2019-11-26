@@ -71,16 +71,6 @@ router.put("/:id", (req, res) => {
     inventoryList.splice(matchIndex, 1, edited);
     writeJSONFile(filePath, inventoryList);
     res.json(edited);
-    // let undefineds = [];
-    // for (key in edited) if (!edited[key]) undefineds.push(key);
-
-    // if (undefineds.length > 0)
-    //   res.status(400).send(`Please specify ${undefineds}`);
-    // else {
-    //   inventoryList.splice(matchIndex, 1, edited);
-    //   writeJSONFile(filePath, inventoryList);
-    //   res.json(edited);
-    // }
   }
 });
 
