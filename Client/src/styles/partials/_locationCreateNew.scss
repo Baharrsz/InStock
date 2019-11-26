@@ -43,10 +43,11 @@
       }
 
       &--input {
-        border: 1px $mercury solid;
+        border: 2px $mercury solid;
         width: 90vw;
         height: 45px;
         padding-left: 5%;
+        background-color: $alabaster;
       }
     }
 
@@ -89,6 +90,7 @@
 
 @include medium {
   .location__createNew {
+    position: fixed;
     justify-content: center;
     align-items: center;
     &-form {
