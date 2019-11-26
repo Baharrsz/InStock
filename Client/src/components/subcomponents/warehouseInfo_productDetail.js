@@ -6,7 +6,6 @@ var windowWidth = window.innerWidth;
 var foundElement = [];
 var mobileflag = false;
 var tabdeskflag = false;
-var removeFlag = false;
 export default class warehouseInfo_productDetail extends Component {
   state = {
     product: undefined,
@@ -27,16 +26,12 @@ export default class warehouseInfo_productDetail extends Component {
       //find the element matches the name : only first one for mobile version
 
       response.data.map(element => {
-        console.log(element.warehouse);
-        console.log(this.props.name);
-        if (element.warehouse === this.props.name) {
+        if (element.warehouse === response.data.warehouse) {
           foundElement.push(element);
         }
-        return "";
       });
       let mobileContent = [];
       mobileContent.push(foundElement[0]);
-      console.log(foundElement);
       if (this.state.mobile) {
         this.setState({
           product: mobileContent
@@ -78,56 +73,7 @@ export default class warehouseInfo_productDetail extends Component {
     }
   }
 
-  removeProduct = index => {
-    // remove target from state.content
-    console.log("la");
-    let oldContent = this.state.product;
-    console.log("lala");
-    oldContent.splice(index, 1);
-    console.log("lallala");
-
-    axios
-      .delete("http://localhost:8080/locations/content", oldContent)
-      .then(response => {
-        console.log(response.data);
-        removeFlag = true;
-        if (removeFlag) {
-          console.log("try remove content");
-          axios
-            .get("http://localhost:8080/locations/productInfo")
-            .then(response => {
-              console.log(response.data);
-              //find the element matches the name : only first one for mobile version
-              foundElement = [];
-              response.data.map(element => {
-                console.log(element.warehouse);
-                console.log(this.props.name);
-                if (element.warehouse === this.props.name) {
-                  foundElement.push(element);
-                }
-                return "";
-              });
-              let mobileContent = [];
-              mobileContent.push(foundElement[0]);
-              console.log(foundElement);
-              if (this.state.mobile) {
-                this.setState({
-                  product: mobileContent
-                });
-              } else {
-                this.setState({
-                  product: foundElement
-                });
-              }
-            });
-
-          removeFlag = false;
-        }
-      });
-  };
-
   outputProduct = () => {
-    console.log(this.state.product);
     if (this.state.product[0] === undefined) {
       return <div>Product information Loading ... </div>;
     } else {
@@ -135,8 +81,8 @@ export default class warehouseInfo_productDetail extends Component {
       return this.state.product.map((element, index) => {
         console.log(element);
         return (
-          <div key={index} className={`productNumber__${index}`}>
-            <div className="productDetail">
+          <div>
+            <div className="productDetail" key={index}>
               <div className="productDetail__content">
                 <div className="productDetail__left">
                   <div className="productDetail__left-item">
@@ -199,19 +145,13 @@ export default class warehouseInfo_productDetail extends Component {
                     </div>
                   </div>
                 </div>
-                <button
-                  className="productDetail__right"
-                  onClick={() => {
-                    alert(`Product with id : ${element.id} is removed`);
-                    this.removeProduct(index);
-                  }}
-                >
+                <div className="productDetail__right">
                   <img
                     className="productDetail__right-icon"
                     alt="edit button"
                     src={kebab}
                   ></img>
-                </button>
+                </div>
               </div>
               <hr className="detail-seperater"></hr>
             </div>

@@ -12,7 +12,6 @@
     font-size: 24px;
     line-height: 32px;
   }
-
   &__search {
     display: flex;
     flex-direction: row;
@@ -98,32 +97,6 @@
   text-decoration: none;
 }
 
-.location__add-icon {
-  background-color: #002f5f;
-  width: 60px;
-  height: 60px;
-  padding: 0.8%;
-  border-radius: 50%;
-  // float: right;
-  position: fixed;
-  // use this to control position
-  bottom: 15vh;
-  right: 8vw;
-}
-.location__add {
-  background: none;
-  border: none;
-  &:focus {
-    outline: none;
-  }
-}
-
-.location__add::after {
-  content: "";
-  clear: both;
-  display: block;
-}
-
 @include medium {
   .location {
     margin: 0 3.125vw;
@@ -179,7 +152,7 @@
   }
 }
 
-@include huge {
+@include large {
   .location {
     margin: 0 12.5vw;
 

@@ -6,8 +6,9 @@
   right: 0;
   bottom: 0;
   width: 100vw;
-  height: 3000px;
+  // height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
+  background-size: 100vw 3000px;
 
   &-form {
     background-color: white;
@@ -42,10 +43,11 @@
       }
 
       &--input {
-        border: 1px $mercury solid;
+        border: 2px $mercury solid;
         width: 90vw;
         height: 45px;
         padding-left: 5%;
+        background-color: $alabaster;
       }
     }
 
@@ -88,17 +90,23 @@
 
 @include medium {
   .location__createNew {
+    position: fixed;
+    justify-content: center;
+    align-items: center;
     &-form {
-      width: 70vw;
-      height: 70vh;
-      margin: 20vh 15vw;
+      // position: fixed;
+      // width: 70vw;
+      width: 545px;
+      // height: 70vh;
+      height: 610px;
 
       &--title {
-        width: 60vw;
+        width: 478px;
       }
 
       &--item {
-        width: 20vw;
+        width: 159px;
+        margin: 10px 39px;
 
         &--label {
           width: 100%;
@@ -109,12 +117,12 @@
       }
 
       &--submit {
-        width: 15vw;
+        width: 118px;
         // margin-left: 5vw;
       }
 
       &--cancel {
-        width: 15vw;
+        width: 118px;
         // margin-left: 5vw;
       }
     }
@@ -123,7 +131,7 @@
   .tabdesk__button {
     display: flex;
     flex-direction: row-reverse;
-    width: 42vw;
+    width: 335px;
     // justify-content: flex-start;
   }
 
@@ -135,44 +143,51 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    width: 545px;
   }
 
   .formatter {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    width: 545px;
   }
 
   .tabdesk__description {
-    width: 72%;
+    width: 395px;
   }
 }
 
-@include huge {
-  .location__createNew {
-    &-form {
-      width: 60vw;
-      margin: 20vh 18vw;
+// @include huge {
+//   .location__createNew {
+//     &-form {
+//       width: 36vw;
+//       margin: 20vh 26vw;
 
-      &--title {
-        width: 32vw;
-      }
+//       &--title {
+//         width: 32vw;
+//       }
 
-      &--item {
-        width: 11vw;
-      }
-    }
-  }
+//       &--item {
+//         width: 11vw;
+//         margin-left: 0;
+//       }
+//     }
+//   }
 
-  .tabdesk__description {
-    width: 77%;
-  }
+//   .formatter {
+//     width: 40vw;
+//   }
 
-  .tabdesk__wrapper {
-    width: 70%;
-  }
+//   .tabdesk__description {
+//     width: 97%;
+//   }
 
-  .tabdesk__button {
-    width: 33vw;
-  }
-}
+//   .tabdesk__wrapper {
+//     width: 77%;
+//   }
+
+//   .tabdesk__button {
+//     width: 27vw;
+//   }
+// }

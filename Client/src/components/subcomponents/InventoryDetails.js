@@ -10,18 +10,23 @@ export default class InventoryDetails extends Component {
     this.editBtn = React.createRef();
     this.submitBtn = React.createRef();
     this.cancelBtn = React.createRef();
+    this.city = React.createRef();
+    this.country = React.createRef();
   }
 
   state = {
     selectedProduct: undefined,
     disabled: true,
-    checked: undefined
+    checked: undefined,
+    warehouses: undefined,
+    warehouseNames: undefined
   };
 
   render() {
     const product = this.state.selectedProduct;
     const disabled = this.state.disabled;
-    if (!this.state.selectedProduct) return <>Loading...</>;
+    if (!this.state.selectedProduct || !this.state.warehouses)
+      return <>Loading...</>;
     else {
       return (
         <form className="product" onSubmit={this.submitEdit}>
@@ -109,32 +114,51 @@ export default class InventoryDetails extends Component {
                 disabled={disabled}
               />
             </div>
+
+            <div className="product__warehouse">
+              <label className="product__warehouse-lable">WAREHOUSE</label>
+              <select
+                name="warehouse"
+                required
+                className="product__warehouse-input"
+                onChange={this.populateWarehouse}
+                disabled={disabled}
+                defaultValue={product.warehouse}
+              >
+                {this.state.warehouseNames}
+              </select>
+            </div>
+
             <div className="product__loacation">
               <label className="product__loacation-lable">LOCATION</label>
               <input
                 className="product__loacation-city"
                 name="city"
+                ref={this.city}
                 defaultValue={`${product.city}`}
-                disabled={disabled}
+                disabled
               />
               <input
                 className="product__loacation-country"
                 name="country"
+                ref={this.country}
                 defaultValue={`${product.country}`}
-                disabled={disabled}
+                disabled
               />
             </div>
             <label
               className="product__statusSwitch"
-              style={{ visibility: this.state.disabled ? "hidden" : "visible" }}
+              style={{
+                visibility: this.state.disabled ? "hidden" : "visible"
+              }}
             >
               STATUS
               <span>In Stock</span>
               <Switch
                 onChange={this.statusSwitch}
                 checked={this.state.checked}
-                onColor="#86d3ff"
-                onHandleColor="#2693e6"
+                onColor="#32cd32"
+                onHandleColor="#ffffff"
                 handleDiameter={30}
                 uncheckedIcon={false}
                 checkedIcon={false}
@@ -184,14 +208,18 @@ export default class InventoryDetails extends Component {
   }
 
   componentDidMount() {
-    console.log("first mount");
     const url = `http://localhost:8080/inventory/${this.props.id}`;
     axios.get(url).then(response => {
-      this.setState({
-        selectedProduct: response.data,
-        checked:
-          response.data.status.toUpperCase().indexOf("OUT") < 0 ? true : false
-      });
+      this.setState(
+        {
+          selectedProduct: response.data,
+          checked:
+            response.data.status.toUpperCase().indexOf("OUT") < 0 ? true : false
+        },
+        () => {
+          this.getWarehouses();
+        }
+      );
     });
   }
 
@@ -226,13 +254,12 @@ export default class InventoryDetails extends Component {
       quantity: submit.target.quantity.value,
       status: status,
       customer: submit.target.customer.value,
-      warehouse: submit.target.warehouse.value,
+      warehouse: submit.target.warehouse[0].value,
       city: submit.target.city.value,
       country: submit.target.country.value,
       id: submit.target.id.value,
       categories: submit.target.categories.value
     };
-    console.log(edited);
     axios
       .put(
         `http://localhost:8080/inventory/${this.state.selectedProduct.id}`,
@@ -244,5 +271,41 @@ export default class InventoryDetails extends Component {
       });
 
     this.endEdit(submit);
+  };
+
+  populateWarehouse = select => {
+    const selectedWarehouse = select.target.value;
+
+    const warehouseInfo = this.state.warehouses.find(
+      location => location.warehouse === selectedWarehouse
+    );
+    if (warehouseInfo) {
+      this.city.current.value = warehouseInfo.city;
+      this.country.current.value = warehouseInfo.country;
+    } else {
+      this.city.current.value = "";
+      this.country.current.value = "";
+    }
+  };
+
+  getWarehouses = () => {
+    axios.get("http://localhost:8080/locations/content").then(response => {
+      this.setState({ warehouses: response.data }, () => {
+        const options = this.state.warehouses.map(warehouse => {
+          const selected =
+            warehouse.warehouse === this.state.selectedProduct.warehouse;
+          return (
+            <option
+              value={warehouse.warehouse}
+              selected={selected}
+              key={warehouse.id}
+            >
+              {warehouse.warehouse}
+            </option>
+          );
+        });
+        this.setState({ warehouseNames: options });
+      });
+    });
   };
 }

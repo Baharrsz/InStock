@@ -35,7 +35,7 @@ export default class Locations extends Component {
           onClick={() => {
             document.getElementsByClassName(
               "location__createNew"
-            )[0].style.display = "block";
+            )[0].style.display = "flex";
           }}
         >
           <img

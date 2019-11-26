@@ -136,16 +136,6 @@ export default class Create extends Component {
         </div>
 
         <div className="create__container">
-          <h4 className="create__container-title silver">QUANTITY</h4>
-          <input
-            required
-            name="quantity"
-            className="create__container-input"
-            placeholder="0"
-          ></input>
-        </div>
-
-        <div className="create__container">
           <h4 className="create__container-title silver">STATUS</h4>
           <div className="create__container-flex">
             <label id="label-black">In Stock</label>

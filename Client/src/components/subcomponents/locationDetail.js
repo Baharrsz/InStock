@@ -10,7 +10,7 @@ export default class locationDetail extends Component {
 
   componentDidMount() {
     axios.get("http://localhost:8080/locations/content").then(response => {
-      this.setState({ content: response.data });
+      this.setState({ content: response.data[0] });
     });
     if (!this.state.mobile && windowWidth < 768) {
       this.setState({ mobile: true });
@@ -22,12 +22,6 @@ export default class locationDetail extends Component {
   }
 
   componentWillUpdate() {
-    this.props.flag.current.addEventListener("submit", () => {
-      axios.get("http://localhost:8080/locations/content").then(response => {
-        this.setState({ content: response.data });
-      });
-    });
-
     window.addEventListener("resize", () => {
       windowWidth = window.innerWidth;
       if (!this.state.mobile && windowWidth < 768) {
@@ -89,64 +83,62 @@ export default class locationDetail extends Component {
     if (this.state.content === undefined) {
       return <div>Loading...</div>;
     } else {
-      return this.state.content.map((element, index) => {
-        return (
-          <div className="location__content-wrapper" key={index}>
-            <div className="location__content-detail">
-              <div className="location__content-detail--left">
-                <div className="location__content-detail--left--geo">
-                  <div className="desktop__title">WAREHOUSE</div>
-                  <div className="location__content-detail--left--geo--warehouse">
-                    {element.warehouse}
-                  </div>
-                  <div className="location__content-detail--left--geo--address">
-                    {element.address}
-                  </div>
-                </div>
-                <div className="location__content-detail--left--wrapper">
-                  <div className="location__content-detail--left--manager">
-                    <div className="desktop__title">CONTACT</div>
-                    <div className="location__content-detail--left--manager--name">
-                      {element.contact}
-                    </div>
-                    <div className="location__content-detail--left--manager--role">
-                      {element.role}
-                    </div>
-                  </div>
-
-                  <div className="location__content-detail--left--contact">
-                    <div className="desktop__title">CONTACT INFORMATION</div>
-                    <div className="location__content-detail--left--contact--phone">
-                      {element.phone}
-                    </div>
-                    <div className="location__content-detail--left--contact--email">
-                      {element.email}
-                    </div>
-                  </div>
-
-                  {this.categoryLayout(element)}
-                </div>
-              </div>
-
-              <div className="location__content-detail--right">
+      return (
+        <div className="location__content-wrapper">
+          <div className="location__content-detail">
+            <div className="location__content-detail--left">
+              <div className="location__content-detail--left--geo">
+                <div className="desktop__title">WAREHOUSE</div>
                 <Link
-                  to={`/locations/detail/${element.warehouse}`}
+                  to={`/locations/detail/${this.state.content.warehouse}`}
                   className="warehouse__link"
                 >
-                  <div className="location__content-detail--arrow">
-                    <img
-                      className="location__content-detail--arrow--icon"
-                      src={Arrow}
-                      alt="Right Arrow"
-                    ></img>
+                  <div className="location__content-detail--left--geo--warehouse">
+                    {this.state.content.warehouse}
+                  </div>
+                  <div className="location__content-detail--left--geo--address">
+                    {this.state.content.address}
                   </div>
                 </Link>
               </div>
+              <div className="location__content-detail--left--wrapper">
+                <div className="location__content-detail--left--manager">
+                  <div className="desktop__title">CONTACT</div>
+                  <div className="location__content-detail--left--manager--name">
+                    {this.state.content.contact}
+                  </div>
+                  <div className="location__content-detail--left--manager--role">
+                    {this.state.content.role}
+                  </div>
+                </div>
+
+                <div className="location__content-detail--left--contact">
+                  <div className="desktop__title">CONTACT INFORMATION</div>
+                  <div className="location__content-detail--left--contact--phone">
+                    {this.state.content.phone}
+                  </div>
+                  <div className="location__content-detail--left--contact--email">
+                    {this.state.content.email}
+                  </div>
+                </div>
+
+                {this.categoryLayout(this.state.content)}
+              </div>
             </div>
-            <hr className="location__content-seperater"></hr>
+
+            <div className="location__content-detail--right">
+              <div className="location__content-detail--arrow">
+                <img
+                  className="location__content-detail--arrow--icon"
+                  src={Arrow}
+                  alt="Right Arrow"
+                ></img>
+              </div>
+            </div>
           </div>
-        );
-      });
+          <hr className="location__content-seperater"></hr>
+        </div>
+      );
     }
   }
 }

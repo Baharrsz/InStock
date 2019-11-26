@@ -1,9 +1,9 @@
 * {
+  font-family: "AvenirRegular";
   box-sizing: border-box;
 }
 
 .inventory {
-  font-family: "AvenirRegular";
   &__title {
     font-family: "AvenirBold";
     margin: 32px 0 16px 5vw;
@@ -80,9 +80,11 @@
         position: absolute;
         top: 48px;
         right: 0;
+        width: 161px;
+        height: 44px;
         border: 1px solid $mercury;
-        padding: 10px;
         background-color: $white;
+        padding: 10px;
       }
     }
   }
@@ -126,18 +128,37 @@
         }
       }
 
-      &-row-cell {
-        align-self: center;
-      }
-
       &-row,
       &-row-cells--regular {
+        * {
+          margin: 0;
+          padding: 0;
+        }
+
         display: grid;
         grid-template-columns: 29.17vw 13.02vw 13.02vw 9.9vw 13.02vw;
         column-gap: 3.125vw;
+        padding: 0;
 
         &-cells--regular {
           grid-template-rows: 100px;
+        }
+      }
+
+      &-row {
+        &-cell {
+          align-self: center;
+        }
+
+        &-kebab {
+          top: 44px;
+          right: 16px;
+        }
+
+        &-dropdown {
+          top: 68px;
+          right: 10px;
+          padding: 10px;
         }
       }
     }
@@ -154,8 +175,24 @@
       background-size: 24px;
     }
 
-    &-row-cells--regular {
-      grid-template-rows: 80px;
+    &__table {
+      &-row,
+      &-row-cells--regular {
+        grid-template-columns: 23.89vw 11.11vw 11.11vw 12.78vw 11.11vw;
+        column-gap: 1.67vw;
+
+        &-cells--regular {
+          grid-template-rows: 80px;
+        }
+
+        &-kebab {
+          top: 33px;
+        }
+
+        &-dropdown {
+          top: 37px;
+        }
+      }
     }
   }
 }
