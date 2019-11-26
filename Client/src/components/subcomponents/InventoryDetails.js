@@ -25,7 +25,8 @@ export default class InventoryDetails extends Component {
   render() {
     const product = this.state.selectedProduct;
     const disabled = this.state.disabled;
-    if (!this.state.selectedProduct) return <>Loading...</>;
+    if (!this.state.selectedProduct || !this.state.warehouses)
+      return <>Loading...</>;
     else {
       return (
         <form className="product" onSubmit={this.submitEdit}>
