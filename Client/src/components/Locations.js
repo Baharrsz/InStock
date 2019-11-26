@@ -26,6 +26,23 @@ export default class Locations extends Component {
         <div className="location__content">
           <LocationDetail />
         </div>
+
+        <button
+          className="location__add"
+          onClick={() => {
+            document.getElementsByClassName(
+              "location__createNew"
+            )[0].style.display = "flex";
+          }}
+        >
+          <img
+            className="location__add-icon"
+            alt="add button icon"
+            src={Add}
+          ></img>
+        </button>
+
+        <LocationCreateNew flag={this.tRef} />
       </div>
     );
   }

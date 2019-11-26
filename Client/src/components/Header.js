@@ -6,7 +6,7 @@ export default class Header extends Component {
   render() {
     return (
       <div className="header">
-        <NavLink className="header__link-logo" to="/">
+        <NavLink className="header__link-logo" to="/locations">
           <img className="header-logo" src={logo} alt="logo"></img>
         </NavLink>
         <NavLink
