@@ -34,7 +34,8 @@
   }
   &-header {
     display: flex;
-    margin: 16px 0 16px 0;
+    flex-wrap: wrap;
+    margin: 16px 0 0 0;
   }
   &__title {
     margin: 0 0 0 16px;
@@ -46,8 +47,8 @@
     padding: 5px 30px;
     font-size: 12px;
     color: white;
-    margin-bottom: 32px;
     border-radius: 5px;
+    margin: 16px 0;
   }
   &__container {
     &-status-flex {
@@ -91,6 +92,46 @@
           background: $alabaster;
           padding: 10px 0 0 7.2727272727272725%;
         }
+      }
+    }
+  }
+}
+
+@include medium {
+  .product {
+    margin: 0 6.25%;
+    &__contain-flex {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
+    &-header {
+      align-items: center;
+      padding-bottom: 16px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid $mercury;
+    }
+    &__title {
+      margin-right: 16px;
+    }
+    &__status {
+      margin: unset;
+    }
+    &-flex {
+      display: flex;
+      flex-direction: column;
+    }
+    &__container {
+      &-input {
+        &-descriptionplus {
+          height: 30px;
+        }
+      }
+    }
+    &__btn {
+      &-save {
+      }
+      &-cancel {
       }
     }
   }
