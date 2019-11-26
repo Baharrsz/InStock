@@ -38,7 +38,7 @@ export default class InventoryDetails extends Component {
               backgroundColor:
                 this.state.selectedProduct.status.toUpperCase().indexOf("OUT") <
                 0
-                  ? "#86d3ff"
+                  ? "#32cd32"
                   : "#AFAFAF"
             }}
           >

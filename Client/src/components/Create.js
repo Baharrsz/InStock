@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Switch from "react-switch";
-​
+
 export default class Create extends Component {
   constructor(props) {
     super(props);
@@ -32,8 +32,7 @@ export default class Create extends Component {
                 placeholder="Item Name"
               ></input>
             </div>
-​
-            {/* Last Ordered input */}
+            ​{/* Last Ordered input */}
             <div className="create__container">
               <h4 className="create__container-title silver">LAST ORDERED</h4>
               <input
@@ -44,7 +43,7 @@ export default class Create extends Component {
               ></input>
             </div>
           </div>
-​
+          ​
           <div className="create-flex">
             {/* Warehouse input */}
             <div className="create__container">
@@ -71,7 +70,7 @@ export default class Create extends Component {
               ></input>
             </div>
           </div>
-​
+          ​
           <div className="create-flex">
             {/* Country input */}
             <div className="create__container">
@@ -131,7 +130,7 @@ export default class Create extends Component {
               </div>
             </div>
           </div>
-​
+          ​
           <div className="create__container">
             <h4 className="create__container-title silver">ITEM DESCRIPTION</h4>
             <input
