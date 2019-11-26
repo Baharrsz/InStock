@@ -1,7 +1,7 @@
 html * {
   margin: unset;
   padding: unset;
-  font-family: "AvenirNextRegular";
+  font-family: "AvenirRegular";
   box-sizing: border-box;
 }
 
@@ -20,7 +20,4 @@ html * {
 @import "./partials/create";
 @import "./partials/inventory";
 @import "./partials/header";
-// @import "./partials/inventoryDetails";
-// @import "./partials/warehouseInfo";
-// @import "./partials/productDetail";
-// @import "./partials/hiddenComponents";
+@import "./partials/invetoryDetails";

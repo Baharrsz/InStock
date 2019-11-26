@@ -1,7 +1,7 @@
 html * {
   margin: unset;
   padding: unset;
-  font-family: "AvenirNextRegular";
+  font-family: "AvenirRegular";
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -58,7 +58,7 @@ h5,
 label {
   font-size: 12px;
   line-height: 20px;
-  font-family: "AvenirBold";
+  font-family: "AvenirDemiBold";
   color: #afafaf;
 }
 
@@ -400,13 +400,23 @@ label {
   .create {
     margin: 32px 5% 0 5%;
   }
+  .create-background {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: white;
+    height: 5544px;
+  }
   .create-title {
     margin-bottom: 8px;
     font-family: AvenirBold;
   }
   .create__container {
-    margin: 24px 0;
+    margin: 0 0 24px 0;
     width: 100%;
+  }
+  .create__container__switch {
+    margin: 0 0 24px 0;
   }
   .create__container-switch {
     margin-right: 16px;
@@ -546,6 +556,7 @@ label {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    height: 48px;
   }
   .create__button {
     display: -webkit-box;
@@ -698,7 +709,7 @@ label {
         grid-template-columns: 3.125vw auto auto 3.125vw;
     -ms-grid-rows: auto auto;
         grid-template-rows: auto auto;
-        grid-template-areas: ". title search ." ". table table .";
+        grid-template-areas: ". title search ." ". table table .";
   }
   .inventory__btn {
     right: 13vw;
@@ -898,6 +909,120 @@ label {
   .header__link-locations-active {
     padding-bottom: 25.5px;
     border-bottom: 4px solid white;
+  }
+}
+
+#isblack {
+  color: #323232;
+  font-family: AvenirRegular;
+}
+
+@media only screen and (max-width: 767px) {
+  .product {
+    margin: 0 5% 16px 5%;
+  }
+  .product__btn {
+    width: 100%;
+    background: #0065ad;
+    border: none;
+    border-radius: 5px;
+    height: 48px;
+    color: white;
+  }
+  .product__btn-flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .product__btn-save {
+    width: 100%;
+    background: #0065ad;
+    border: none;
+    border-radius: 5px;
+    height: 48px;
+    color: white;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  .product__btn-cancel {
+    color: #0065ad;
+    background: white;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  .product-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 16px 0 16px 0;
+  }
+  .product__title {
+    margin: 0 0 0 16px;
+    font-family: AvenirBold;
+  }
+  .product__status {
+    display: inline-block;
+    text-align: center;
+    padding: 5px 30px;
+    font-size: 12px;
+    color: white;
+    margin-bottom: 32px;
+    border-radius: 5px;
+  }
+  .product__container {
+    margin-bottom: 32px;
+  }
+  .product__container-status-flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 48px;
+  }
+  .product__container-select {
+    -webkit-appearance: none;
+  }
+  .product__container-select:enabled {
+    -webkit-appearance: none;
+  }
+  .product__container-input {
+    width: 100%;
+    background: none;
+    border: none;
+  }
+  .product__container-input:enabled {
+    border-style: unset;
+    width: 100%;
+    height: 48px;
+    border-radius: 5px;
+    border: 2px solid #e1e1e1;
+    background: #fafafa;
+    padding-left: 7.2727272727272725%;
+  }
+  .product__container-input-descriptionplus {
+    height: 65px;
+    width: 100%;
+    resize: none;
+    border: none;
+    background: none;
+  }
+  .product__container-input-descriptionplus:enabled {
+    border-style: unset;
+    width: 100%;
+    height: 90px;
+    border-radius: 5px;
+    border: 2px solid #e1e1e1;
+    background: #fafafa;
+    padding: 10px 0 0 7.2727272727272725%;
   }
 }
 /*# sourceMappingURL=main.css.map */

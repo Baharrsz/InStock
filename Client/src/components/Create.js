@@ -21,7 +21,6 @@ export default class Create extends Component {
         <form onSubmit={this.props.addFunction} className="create">
           <h1 className="create-title">Create New</h1>
           <div className="create-flex">
-            {/* Last Product name input */}
             <div className="create__container">
               <h4 className="create__container-title silver">PRODUCT</h4>
               <input
@@ -31,7 +30,6 @@ export default class Create extends Component {
                 placeholder="Item Name"
               ></input>
             </div>
-            ​{/* Last Ordered input */}
             <div className="create__container">
               <h4 className="create__container-title silver">LAST ORDERED</h4>
               <input
@@ -42,9 +40,7 @@ export default class Create extends Component {
               ></input>
             </div>
           </div>
-          ​
           <div className="create-flex">
-            {/* Warehouse input */}
             <div className="create__container">
               <h4 className="create__container-title silver">WAREHOUSE</h4>
               <select
@@ -57,7 +53,6 @@ export default class Create extends Component {
                 {this.state.warehouseNames}
               </select>
             </div>
-            {/* City input */}
             <div className="create__container">
               <h4 className="create__container-title silver">CITY</h4>
               <input
@@ -69,9 +64,7 @@ export default class Create extends Component {
               ></input>
             </div>
           </div>
-          ​
           <div className="create-flex">
-            {/* Country input */}
             <div className="create__container">
               <h4 className="create__container-title silver">COUNTRY</h4>
               <input
@@ -82,7 +75,6 @@ export default class Create extends Component {
                 placeholder="Country"
               ></input>
             </div>
-            {/* Quantity input */}
             <div className="create__container">
               <h4 className="create__container-title silver">QUANTITY</h4>
               <input
@@ -94,7 +86,6 @@ export default class Create extends Component {
             </div>
           </div>
           <div className="create-flex">
-            {/* Customer */}
             <div className="create__container">
               <h4 className="create__container-title silver">Ordered By</h4>
               <input
@@ -112,7 +103,7 @@ export default class Create extends Component {
                     name="status"
                     checked={this.state.checked}
                     onChange={this.handleChange}
-                    onColor="#86d3ff"
+                    onColor="#82B72A"
                     onHandleColor="#ffffff"
                     handleDiameter={30}
                     uncheckedIcon={false}
@@ -129,7 +120,6 @@ export default class Create extends Component {
               </div>
             </div>
           </div>
-          ​
           <div className="create__container">
             <h4 className="create__container-title silver">ITEM DESCRIPTION</h4>
             <input

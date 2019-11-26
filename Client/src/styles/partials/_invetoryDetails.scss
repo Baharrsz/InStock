@@ -1,0 +1,99 @@
+#isblack {
+  color: $black;
+  font-family: AvenirRegular;
+}
+
+@include small {
+  .product {
+    margin: 0 5% 16px 5%;
+
+    &__btn {
+      width: 100%;
+      background: $darkblue;
+      border: none;
+      border-radius: 5px;
+      height: 48px;
+      color: white;
+      &-flex {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      &-save {
+        width: 100%;
+        background: $darkblue;
+        border: none;
+        border-radius: 5px;
+        height: 48px;
+        color: white;
+        order: 1;
+      }
+      &-cancel {
+        color: $darkblue;
+        background: white;
+        order: 2;
+      }
+    }
+    &-header {
+      display: flex;
+      margin: 16px 0 16px 0;
+    }
+    &__title {
+      margin: 0 0 0 16px;
+      font-family: AvenirBold;
+    }
+    &__status {
+      display: inline-block;
+      text-align: center;
+      padding: 5px 30px;
+      font-size: 12px;
+      color: white;
+      margin-bottom: 32px;
+      border-radius: 5px;
+    }
+    &__container {
+      &-status-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 48px;
+      }
+      &-select {
+        -webkit-appearance: none;
+        &:enabled {
+          -webkit-appearance: none;
+        }
+      }
+      margin-bottom: 32px;
+      &-input {
+        width: 100%;
+        background: none;
+        border: none;
+        &:enabled {
+          border-style: unset;
+          width: 100%;
+          height: 48px;
+          border-radius: 5px;
+          border: 2px solid $mercury;
+          background: $alabaster;
+          padding-left: 7.2727272727272725%;
+        }
+        &-descriptionplus {
+          height: 65px;
+          width: 100%;
+          resize: none;
+          border: none;
+          background: none;
+          &:enabled {
+            border-style: unset;
+            width: 100%;
+            height: 90px;
+            border-radius: 5px;
+            border: 2px solid $mercury;
+            background: $alabaster;
+            padding: 10px 0 0 7.2727272727272725%;
+          }
+        }
+      }
+    }
+  }
+}
