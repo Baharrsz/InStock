@@ -298,7 +298,7 @@ export default class InventoryDetails extends Component {
             <option
               value={warehouse.warehouse}
               selected={selected}
-              id={warehouse}
+              id={warehouse.id}
             >
               {warehouse.warehouse}
             </option>
