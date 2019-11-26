@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import LocationDetail from "./subcomponents/locationDetail";
 import Search from "../assets/icons/SVG/Icon-search.svg";
+import Add from "../assets/icons/SVG/Icon-add.svg";
+import LocationCreateNew from "./subcomponents/locationCreateNew";
 
 export default class Locations extends Component {
+  tRef = React.createRef();
   state = { location: "warehouse" };
   render() {
     return (
@@ -15,16 +18,16 @@ export default class Locations extends Component {
               alt="location search icon"
               src={Search}
             ></img>
-            <textarea
+            <input
               className="location__search--input"
               name="search"
               placeholder="Search"
-            ></textarea>
+            ></input>
           </div>
         </div>
 
         <div className="location__content">
-          <LocationDetail />
+          <LocationDetail flag={this.tRef} />
         </div>
 
         <button
