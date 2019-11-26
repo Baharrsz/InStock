@@ -209,13 +209,17 @@ export default class InventoryDetails extends Component {
   componentDidMount() {
     const url = `http://localhost:8080/inventory/${this.props.id}`;
     axios.get(url).then(response => {
-      this.setState({
-        selectedProduct: response.data,
-        checked:
-          response.data.status.toUpperCase().indexOf("OUT") < 0 ? true : false
-      });
+      this.setState(
+        {
+          selectedProduct: response.data,
+          checked:
+            response.data.status.toUpperCase().indexOf("OUT") < 0 ? true : false
+        },
+        () => {
+          this.getWarehouses();
+        }
+      );
     });
-    this.getWarehouses();
   }
 
   statusSwitch = checked => {
