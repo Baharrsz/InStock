@@ -1,10 +1,9 @@
 html * {
   margin: unset;
   padding: unset;
-  font-family: "AvenirNextRegular";
+  // font-family: "AvenirNextRegular";
   box-sizing: border-box;
 }
-
 *,
 *:before,
 *:after {
@@ -15,12 +14,17 @@ html * {
 @import "./partials/fonts";
 @import "./partials/typography";
 @import "./partials/generics";
-
 @import "./partials/location";
 @import "./partials/create";
 @import "./partials/inventory";
+@import "./partials/invetoryDetails";
+@import "./partials/warehouseInfo";
+@import "./partials/productDetail";
+@import "./partials/locationCreateNew";
 @import "./partials/header";
-// @import "./partials/inventoryDetails";
-// @import "./partials/warehouseInfo";
-// @import "./partials/productDetail";
-// @import "./partials/hiddenComponents";
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+}
