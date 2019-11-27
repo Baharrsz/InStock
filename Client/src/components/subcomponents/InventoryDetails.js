@@ -270,7 +270,7 @@ export default class InventoryDetails extends Component {
     const status = this.state.checked ? "In Stock" : "Out of Stock";
     const edited = {
       name: this.state.selectedProduct.name,
-      // description: submit.target.description.value,
+      description: this.state.selectedProduct.description,
       descriptionplus: submit.target.descriptionPlus.value,
       date: submit.target.date.value,
       quantity: submit.target.quantity.value,
