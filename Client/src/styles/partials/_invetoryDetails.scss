@@ -154,6 +154,51 @@
 }
 
 @include huge {
+  .product * {
+    margin: unset;
+    padding: unset;
+  }
   .product {
+    margin: 0 12.5% 0 12.5%;
+    &__desktop-flex {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 0 40px 0;
+      padding: 0 0 48px 0;
+      border-bottom: 1px solid $mercury;
+    }
+    &-header {
+      margin: 40px 0 40px 0;
+      padding: 0 0 48px 0;
+    }
+    &__title {
+      margin: 0 24px 0 24px;
+    }
+    &__status {
+      width: 88px;
+      padding: 5px 0;
+    }
+    &-contain-flex {
+    }
+    &__container {
+      margin-right: 16px;
+      margin-bottom: 24px;
+      &-label {
+        margin-bottom: 24px;
+      }
+      &-input {
+        &-descriptionplus {
+          width: 550px;
+          &:enabled {
+            width: 550px;
+          }
+        }
+      }
+    }
+    &__btn {
+      &-edit {
+        margin-left: auto;
+      }
+    }
   }
 }
