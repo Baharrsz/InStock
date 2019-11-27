@@ -99,7 +99,7 @@
 
 @include medium {
   .product {
-    margin: 0 6.25%;
+    margin: 0 6.25% 16px 6.25%;
     &__contain-flex {
       display: flex;
       flex-wrap: nowrap;
@@ -107,8 +107,8 @@
     }
     &-header {
       align-items: center;
-      padding-bottom: 16px;
-      margin-bottom: 16px;
+      padding-bottom: 32px;
+      margin-bottom: 32px;
       border-bottom: 1px solid $mercury;
     }
     &__title {
@@ -122,17 +122,36 @@
       flex-direction: column;
     }
     &__container {
+      height: 68px;
       &-input {
         &-descriptionplus {
-          height: 30px;
+          height: 55px;
+          padding: 10px 10px;
+          &:enabled {
+            height: 55px;
+            padding: 10px 10px;
+          }
         }
       }
     }
     &__btn {
+      width: 150px;
+      &-flex {
+        justify-content: flex-end;
+      }
+      &-edit {
+        margin-left: auto;
+        display: block;
+      }
       &-save {
+        order: 2;
       }
       &-cancel {
+        order: 1;
       }
     }
   }
+}
+
+@include huge {
 }
