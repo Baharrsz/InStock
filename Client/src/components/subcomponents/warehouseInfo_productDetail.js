@@ -15,6 +15,7 @@ export default class warehouseInfo_productDetail extends Component {
   };
 
   componentDidMount() {
+    foundElement = [];
     if (!this.state.mobile && windowWidth < 768) {
       this.setState({ mobile: true });
       this.setState({ tabdesk: false });

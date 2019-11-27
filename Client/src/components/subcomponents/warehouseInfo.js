@@ -13,16 +13,21 @@ export default class warehouseInfo extends Component {
       var found = false;
 
       let foundElement = warehouseInfo.map(element => {
+        console.log(element.warehouse);
         if (element.warehouse === this.props.match.params.warehouse && !found) {
           found = true;
           return element;
-        } else {
-          return "";
         }
       });
       console.log(foundElement);
+      let result = undefined;
+      foundElement.map(element => {
+        if (element !== undefined) {
+          result = element;
+        }
+      });
 
-      this.setState({ warehouse: foundElement[0] });
+      this.setState({ warehouse: result });
     });
   }
 
